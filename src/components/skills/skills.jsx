@@ -1,6 +1,5 @@
 import React from "react";
 import "./skills.css";
-import {Icon} from "@iconify/react";
 import {TechIcons} from "../icons/TechIcons.jsx";
 
 export default function Skills() {

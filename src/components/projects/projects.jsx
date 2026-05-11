@@ -4,7 +4,7 @@ import {Icon} from "@iconify/react";
 
 export default function Projects() {
   return (
-    <section className="flex flex-col justify-center bg-black my-6" id="projects">
+    <section className="flex flex-col justify-center bg-black my-4" id="projects">
       <h3 className="text-center text-white text-2xl my-4">
         Mis <span className="font-bold">Proyectos</span>
       </h3>
