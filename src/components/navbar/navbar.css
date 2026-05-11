@@ -1,0 +1,26 @@
+@reference "tailwindcss"
+
+.button{
+    font-family: 'Sora', 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+    font-weight: 900;
+}
+
+.name-title{
+    font-family: 'Sora', 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+    font-weight: 600;
+}
+
+ul li{
+    font-family: 'Sora', 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+    font-weight: 500;
+}
+
+.cv{
+    font-family: 'Sora', 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+    font-weight: 600;
+    padding: 4px 24px;
+}
+
+.nav-link{
+    @apply transition-all duration-500 hover:bg-gray-950 hover:text-white hover:p-2 hover:rounded-sm;
+}

@@ -1,0 +1,5 @@
+.project-cards a.icon-link:hover .icon-svg {
+  filter: brightness(0) invert(1);
+  transform: scale(2.6);
+  transition: 0.2s ease-in-out;
+}
