@@ -32,7 +32,7 @@ export default function AboutMe() {
           </div>
         </div>
         <div className="w-1/2 p-4">
-          <img src={IMAGES.banner} alt="bann" />
+          <img src={IMAGES.Banner} alt="bann" />
         </div>
       </div>
     </section>
