@@ -21,14 +21,22 @@ export default function Skills() {
 
     const databases = [
         { name: "MongoDB", lib: "devicon-plain", icon: "mongodb" },
-        { name: "Mongoose", lib: "devicon", icon: "mongoose-wordmark" },
+        {
+            name: "Mongoose",
+            type: "image",
+            src: "/icons/mongoose.svg",
+        },
         { name: "PostgreSQL", lib: "lineicons", icon: "postgresql" },
         { name: "MySQL", lib: "lineicons", icon: "mysql" },
     ]
 
     const deployment = [
         { name: "Vercel", lib: "lineicons", icon: "vercel" },
-        { name: "Render", lib: "lineicons", icon: "render" },
+        {
+            name: "Render",
+            type: "image",
+            src: "/icons/render.svg",
+        },
     ]
 
     const tools = [

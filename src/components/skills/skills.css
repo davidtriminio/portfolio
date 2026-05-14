@@ -301,3 +301,15 @@
         transform: none;
     }
 }
+
+.tech-icon-img {
+    display: block;
+    width: 28px;
+    height: 28px;
+    object-fit: contain;
+    transition: filter 0.25s ease;
+}
+
+.tech-icon:hover .tech-icon-img {
+    filter: brightness(0) invert(1);
+}
