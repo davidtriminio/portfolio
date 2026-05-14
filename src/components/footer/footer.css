@@ -25,9 +25,10 @@
 }
 
 .footer-logo {
-    width: 32px;
-    height: 32px;
-    object-fit: contain;
+    width: 40px;
+    height: auto;
+    color: #fff;
+    display: block;
 }
 
 .footer-copy {

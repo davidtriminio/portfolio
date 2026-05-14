@@ -10,7 +10,7 @@ export default function FooterComponent() {
             <div className="footer-content">
                 <a href="#" className="footer-brand" aria-label="Ir al inicio">
                     <img
-                        src={IMAGES.logo}
+                        src={IMAGES.logo_white}
                         width={32}
                         height={32}
                         alt=""
