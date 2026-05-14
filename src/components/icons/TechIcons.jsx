@@ -1,19 +1,26 @@
-﻿import "../skills/skills.css"
-import React from 'react'
-import {Icon} from "@iconify/react";
+﻿import React from "react";
+import { Icon } from "@iconify/react";
+import "../skills/skills.css";
 
-export const TechIcons = ({techs}) => {
-    return (<div className={"social-buttons flex gap-4 my-6 justify-center flex-wrap"}>
-        {techs.map((tech) => (
-            <button
-                key={`${tech.lib}-${tech.icon}`}
-                type={"button"}
-                className={"tech-icon"}>
-                <Icon icon={`${tech.lib}:${tech.icon}`}
-                  width={28}
-                  height={28}
-                  className="text-shadow-gray-950 hover:text-white transition-colors"/>
-        </button>
-        ))}
-    </div>)
-}
+export const TechIcons = ({ techs }) => {
+    return (
+        <ul className="tech-icons" aria-label="Lista de tecnologías">
+            {techs.map((tech) => (
+                <li
+                    key={`${tech.lib}-${tech.icon}`}
+                    className="tech-icon"
+                    title={tech.name}
+                    aria-label={tech.name}
+                >
+                    <Icon
+                        icon={`${tech.lib}:${tech.icon}`}
+                        width={28}
+                        height={28}
+                        aria-hidden="true"
+                        focusable="false"
+                    />
+                </li>
+            ))}
+        </ul>
+    );
+};
