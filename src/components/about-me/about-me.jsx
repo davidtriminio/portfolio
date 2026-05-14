@@ -14,11 +14,6 @@ const socialLinks = [
     href: "https://linkedin.com/",
     icon: "lineicons:linkedin",
   },
-  {
-    name: "Instagram",
-    href: "https://instagram.com/",
-    icon: "lineicons:instagram",
-  },
 ];
 
 export default function AboutMe() {
