@@ -1,40 +1,83 @@
 import React from "react";
+import { Icon } from "@iconify/react";
 import { IMAGES } from "../../const/images";
 import "../about-me/about-me.css";
-import {Icon} from "@iconify/react";
+
+const socialLinks = [
+  {
+    name: "GitHub",
+    href: "https://github.com/",
+    icon: "lineicons:github",
+  },
+  {
+    name: "LinkedIn",
+    href: "https://linkedin.com/",
+    icon: "lineicons:linkedin",
+  },
+];
 
 export default function AboutMe() {
   return (
-    <section className="h-[26em]  px-12 py-8" id="#about-me">
-      <div className="flex w-full information-texts">
-        <div className="w-1/2 my-12">
-          <p className="text-4xl my-6">
-            Hola, Soy <span className="font-extrabold">David Triminio</span>.
-          </p>
-          <p className="text-4xl font-black my-6">
-            <span className="developer-text">Desarrollador Web</span>{" "}
-            Frontend/Backend
-          </p>
-          <p className="font-light text-md">
-            Lorem ipsum dolor sit amet consectetur adipisicing elit. Corrupti
-            ratione pariatur dolore?
-          </p>
-          <div className="social-buttons flex flex-row gap-4 my-6">
-            <a href="">
-              <Icon icon={"lineicons:github"} width={28} height={28}/>
-            </a>
-            <a href="">
-              <Icon icon={"lineicons:linkedin"} width={28} height={28}/>
-            </a>
-            <a href="">
-              <Icon icon={"lineicons:instagram"} width={28} height={28}/>
-            </a>
+      <section
+          className="about-me-section"
+          id="about-me"
+          aria-labelledby="about-me-title"
+      >
+        <div className="about-me-content">
+          <div className="about-me-text">
+            <p className="about-me-greeting">
+              Hola, soy{" "}
+              <span className="about-me-name">
+              David Triminio
+            </span>
+              .
+            </p>
+
+            <h1 className="about-me-title" id="about-me-title">
+            <span className="developer-text">
+              Desarrollador Web
+            </span>{" "}
+              Frontend/Backend
+            </h1>
+
+            <p className="about-me-description">
+              Lorem ipsum dolor sit amet consectetur adipisicing elit. Corrupti
+              ratione pariatur dolore?
+            </p>
+
+            <nav
+                className="social-buttons"
+                aria-label="Redes sociales de David Triminio"
+            >
+              {socialLinks.map((social) => (
+                  <a
+                      key={social.name}
+                      href={social.href}
+                      target="_blank"
+                      rel="noopener noreferrer"
+                      aria-label={`Visitar perfil de ${social.name}`}
+                      title={social.name}
+                  >
+                    <Icon
+                        icon={social.icon}
+                        width={28}
+                        height={28}
+                        aria-hidden="true"
+                        focusable="false"
+                    />
+                  </a>
+              ))}
+            </nav>
+          </div>
+
+          <div className="about-me-image-wrapper" aria-hidden="true">
+            <img
+                src={IMAGES.Banner}
+                alt=""
+                className="about-me-image"
+            />
           </div>
         </div>
-        <div className="w-1/2 p-4">
-          <img src={IMAGES.Banner} alt="bann" />
-        </div>
-      </div>
-    </section>
+      </section>
   );
 }

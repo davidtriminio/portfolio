@@ -1,0 +1,58 @@
+﻿.footer {
+    background-color: #101011;
+    color: #fff;
+    padding: 1rem;
+    font-family: 'Sora', 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+}
+
+.footer-content {
+    width: min(100% - 2rem, 1200px);
+    min-height: 3.25rem;
+    margin: 0 auto;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    gap: 1rem;
+}
+
+.footer-brand {
+    display: inline-flex;
+    align-items: center;
+    gap: 0.5rem;
+    color: #fff;
+    text-decoration: none;
+    font-weight: 600;
+}
+
+.footer-logo {
+    width: 40px;
+    height: auto;
+    color: #fff;
+    display: block;
+}
+
+.footer-copy {
+    font-size: 0.875rem;
+    color: #d4d4d4;
+    text-align: right;
+}
+
+.footer-brand:focus-visible {
+    outline: 3px solid #fff;
+    outline-offset: 4px;
+}
+
+/*
+  En móvil centramos el contenido para que no se vea apretado.
+*/
+@media (max-width: 640px) {
+    .footer-content {
+        flex-direction: column;
+        justify-content: center;
+        text-align: center;
+    }
+
+    .footer-copy {
+        text-align: center;
+    }
+}

@@ -1,34 +1,92 @@
-import { useEffect } from "react";
 import "./contact-form.css";
 
 export default function ContactForm() {
-  useEffect(() => {
-    const el = document.getElementById("textAreaMensaje");
-    if (el) {
-      el.addEventListener("keydown", (e) => {
-        if (e.key === "Enter") {
-          e.preventDefault();
-        }
-      });
-    }
-  }, []);
+  const handleSubmit = (event) => {
+    event.preventDefault();
+
+    /*
+      Aquí luego puedes conectar EmailJS, Formspree, Netlify Forms
+      o tu propio backend para enviar el mensaje.
+    */
+  };
+
   return (
-    <div className="px-12 py-8 w-full flex" id="contact">
-      <div className="w-1/2 flex flex-col gap-4">
-        <input type="text" className="field-text" placeholder="Nombre" />
-        <input type="email" className="field-text" placeholder="Email" />
-        <textarea
-          id="textAreaMensaje"
-          className="field-text text-area-custom"
-          placeholder="¿En qué puedo ayudarte?*"
-          maxLength={100}
-        />
-      </div>
-      <div className="w-1/2 items-center">
-        <h3 className="text-4xl font-black line">Trabajemos juntos</h3>
-        <h4 className="text-4xl font-black line">Y seamos creativos.</h4>
-        <p className="font-light text-gray-500 my-2">Lorem ipsum dolor sit amet consectetur adipisicing elit. Consectetur molestias optio, beatae incidunt illo cupiditate ut ratione unde quibusdam atque!</p>
-      </div>
-    </div>
+      <section
+          className="contact-section"
+          id="contact"
+          aria-labelledby="contact-title"
+      >
+        <div className="contact-content">
+          <form className="contact-form" onSubmit={handleSubmit}>
+            <div className="form-group">
+              <label htmlFor="name">
+                Nombre
+              </label>
+
+              <input
+                  id="name"
+                  name="name"
+                  type="text"
+                  className="field-text"
+                  placeholder="Tu nombre"
+                  autoComplete="name"
+                  required
+              />
+            </div>
+
+            <div className="form-group">
+              <label htmlFor="email">
+                Email
+              </label>
+
+              <input
+                  id="email"
+                  name="email"
+                  type="email"
+                  className="field-text"
+                  placeholder="tu@email.com"
+                  autoComplete="email"
+                  required
+              />
+            </div>
+
+            <div className="form-group">
+              <label htmlFor="message">
+                Mensaje
+              </label>
+
+              <textarea
+                  id="message"
+                  name="message"
+                  className="field-text text-area-custom"
+                  placeholder="¿En qué puedo ayudarte?"
+                  maxLength={500}
+                  required
+              />
+            </div>
+
+            <button type="submit" className="contact-button">
+              Enviar mensaje
+            </button>
+          </form>
+
+          <div className="contact-info">
+            <p className="contact-subtitle">
+              Contacto
+            </p>
+
+            <h2 className="contact-title" id="contact-title">
+              Trabajemos juntos
+              <span> y seamos creativos.</span>
+            </h2>
+
+            <p className="contact-description">
+              Lorem ipsum dolor sit amet consectetur adipisicing elit.
+              Consectetur molestias optio, beatae incidunt illo cupiditate ut
+              ratione unde quibusdam atque!
+            </p>
+          </div>
+        </div>
+      </section>
   );
 }

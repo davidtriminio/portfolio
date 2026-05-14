@@ -1,14 +1,61 @@
-.information-texts{
-    font-family: 'Sora','Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+.about-me-section {
+    padding: 2rem 3rem;
+    min-height: 26rem;
+    display: flex;
+    align-items: center;
 }
 
-.developer-text{
+.about-me-content {
+    width: 100%;
+    display: flex;
+    align-items: center;
+    gap: 2rem;
+    font-family: 'Sora', 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+}
+
+.about-me-text {
+    width: 50%;
+}
+
+.about-me-greeting {
+    font-size: clamp(2rem, 5vw, 2.5rem);
+    margin: 1.5rem 0;
+    line-height: 1.2;
+}
+
+.about-me-name {
+    font-weight: 800;
+}
+
+.about-me-title {
+    font-size: clamp(2rem, 5vw, 2.5rem);
+    font-weight: 900;
+    margin: 1.5rem 0;
+    line-height: 1.2;
+}
+
+.developer-text {
     -webkit-text-stroke: 1px #101011;
     -webkit-text-fill-color: transparent;
     text-shadow: none;
 }
 
-.social-buttons a{
+.about-me-description {
+    max-width: 36rem;
+    font-size: 1rem;
+    font-weight: 300;
+    line-height: 1.7;
+    color: #404040;
+}
+
+.social-buttons {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 1rem;
+    margin: 1.5rem 0;
+}
+
+.social-buttons a {
     border: 2px solid #101011;
     width: 56px;
     height: 56px;
@@ -16,19 +63,93 @@
     justify-content: center;
     align-items: center;
     border-radius: 6px;
-    transition: background-color 0.6s ease, filter 0.6s ease;
+    color: #101011;
+    transition:
+            background-color 0.4s ease,
+            color 0.4s ease,
+            transform 0.4s ease;
 }
 
-.social-buttons a:hover{
+.social-buttons a:hover {
     background-color: #101011;
     color: #fff;
+    transform: translateY(-3px);
 }
 
-.social-buttons a img {
-    transition: filter 0.6s ease;
+.social-buttons a:focus-visible {
+    outline: 3px solid #101011;
+    outline-offset: 4px;
 }
 
-.social-buttons a:hover img{
-    filter: brightness(100) saturate(100) invert(100%) sepia(100%) hue-rotate(140deg);
-    transition: filter 0.6s ease;
+.about-me-image-wrapper {
+    width: 50%;
+    display: flex;
+    justify-content: center;
+}
+
+.about-me-image {
+    width: 100%;
+    max-width: 34rem;
+    height: auto;
+    object-fit: contain;
+}
+
+/*
+  En tablets reducimos el padding y dejamos que el contenido respire mejor.
+*/
+@media (max-width: 1024px) {
+    .about-me-section {
+        padding: 2rem;
+    }
+
+    .about-me-content {
+        gap: 1.5rem;
+    }
+}
+
+/*
+  En móvil el contenido pasa a una sola columna.
+  La imagen queda arriba para que visualmente funcione como banner principal.
+*/
+@media (max-width: 768px) {
+    .about-me-section {
+        min-height: auto;
+        padding: 2rem 1.25rem;
+    }
+
+    .about-me-content {
+        flex-direction: column-reverse;
+        text-align: center;
+    }
+
+    .about-me-text,
+    .about-me-image-wrapper {
+        width: 100%;
+    }
+
+    .about-me-description {
+        margin: 0 auto;
+    }
+
+    .social-buttons {
+        justify-content: center;
+    }
+
+    .about-me-image {
+        max-width: 26rem;
+    }
+}
+
+/*
+  En pantallas muy pequeñas bajamos un poco el tamaño de los botones.
+*/
+@media (max-width: 420px) {
+    .about-me-section {
+        padding: 1.5rem 1rem;
+    }
+
+    .social-buttons a {
+        width: 50px;
+        height: 50px;
+    }
 }
