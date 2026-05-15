@@ -1,4 +1,4 @@
-import {useState} from "react";
+import {useEffect, useState} from "react";
 import {IMAGES} from "../../const/images";
 import "./navbar.css";
 import {Icon} from "@iconify/react";
@@ -24,10 +24,55 @@ const navLinks = [
 
 export default function NavBar() {
     const [isMenuOpen, setIsMenuOpen] = useState(false);
+    const [activeSection, setActiveSection] = useState("#about-me");
 
     const closeMenu = () => {
         setIsMenuOpen(false);
     };
+
+    useEffect(() => {
+        const sections = navLinks
+            .map((link) => document.querySelector(link.href))
+            .filter(Boolean);
+
+        const updateActiveSection = () => {
+            const navbarHeight = document.querySelector(".navbar-header")?.offsetHeight ?? 0;
+            const currentPosition = window.scrollY + navbarHeight + 120;
+
+            let currentSection = navLinks[0].href;
+
+            sections.forEach((section) => {
+                if (section.offsetTop <= currentPosition) {
+                    currentSection = `#${section.id}`;
+                }
+            });
+
+            setActiveSection(currentSection);
+        };
+
+        updateActiveSection();
+        window.addEventListener("scroll", updateActiveSection, { passive: true });
+        window.addEventListener("resize", updateActiveSection);
+
+        return () => {
+            window.removeEventListener("scroll", updateActiveSection);
+            window.removeEventListener("resize", updateActiveSection);
+        };
+    }, []);
+
+    useEffect(() => {
+        const handleResize = () => {
+            if (window.innerWidth > 768) {
+                setIsMenuOpen(false);
+            }
+        };
+
+        window.addEventListener("resize", handleResize);
+
+        return () => {
+            window.removeEventListener("resize", handleResize);
+        };
+    }, []);
 
     return (
         <header className="navbar-header">
@@ -75,8 +120,12 @@ export default function NavBar() {
                             <li key={link.href}>
                                 <a
                                     href={link.href}
-                                    className="nav-link"
-                                    onClick={closeMenu}
+                                    className={`nav-link ${activeSection === link.href ? "is-active" : ""}`}
+                                    aria-current={activeSection === link.href ? "page" : undefined}
+                                    onClick={() => {
+                                        setActiveSection(link.href);
+                                        closeMenu();
+                                    }}
                                 >
                                     {link.label}
                                 </a>

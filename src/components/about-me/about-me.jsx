@@ -71,11 +71,35 @@ export default function AboutMe() {
           </div>
 
           <div className="about-me-image-wrapper" aria-hidden="true">
-            <img
-                src={IMAGES.bannerWhite}
-                alt=""
-                className="about-me-image"
-            />
+            <div className="about-me-image-stack">
+              <img
+                  src={IMAGES.bannerWhite}
+                  alt=""
+                  className="about-me-image"
+              />
+
+              <div className="availability-badge">
+                <div className="availability-avatar-ring">
+                  <img
+                      src={IMAGES.bannerWhite}
+                      alt=""
+                      className="availability-avatar"
+                  />
+                </div>
+
+                <div className="availability-pill">
+                  <span className="availability-dot" />
+                  <Icon
+                      icon="lineicons:briefcase"
+                      width={16}
+                      height={16}
+                      aria-hidden="true"
+                      focusable="false"
+                  />
+                  <span>Disponible para trabajar</span>
+                </div>
+              </div>
+            </div>
           </div>
         </div>
       </section>
