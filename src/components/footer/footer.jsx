@@ -8,7 +8,7 @@ export default function FooterComponent() {
     return (
         <footer className="footer" aria-label="Pie de página">
             <div className="footer-content">
-                <a href="#" className="footer-brand" aria-label="Ir al inicio">
+                <a href="#page-top" className="footer-brand" aria-label="Ir al inicio">
                     <img
                         src={IMAGES.logo_white}
                         width={32}

@@ -84,10 +84,6 @@
     box-shadow: 0 10px 24px rgba(16, 16, 17, 0.18);
 }
 
-html {
-    scroll-behavior: smooth;
-}
-
 .nav-link:focus-visible,
 .cv-button:focus-visible,
 .navbar-toggle:focus-visible,
@@ -245,6 +241,14 @@ html {
     .cv-button {
         width: 100%;
         padding: 0.875rem;
+    }
+}
+
+@media (prefers-reduced-motion: reduce) {
+    .nav-link,
+    .cv-button,
+    .navbar-menu {
+        transition: none;
     }
 }
 /*

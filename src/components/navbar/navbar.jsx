@@ -25,6 +25,7 @@ const navLinks = [
 export default function NavBar() {
     const [isMenuOpen, setIsMenuOpen] = useState(false);
     const [activeSection, setActiveSection] = useState("#about-me");
+    const [isMobileViewport, setIsMobileViewport] = useState(false);
 
     const closeMenu = () => {
         setIsMenuOpen(false);
@@ -62,11 +63,16 @@ export default function NavBar() {
 
     useEffect(() => {
         const handleResize = () => {
-            if (window.innerWidth > 768) {
+            const mobileViewport = window.innerWidth <= 768;
+
+            setIsMobileViewport(mobileViewport);
+
+            if (!mobileViewport) {
                 setIsMenuOpen(false);
             }
         };
 
+        handleResize();
         window.addEventListener("resize", handleResize);
 
         return () => {
@@ -74,10 +80,28 @@ export default function NavBar() {
         };
     }, []);
 
+    useEffect(() => {
+        if (!isMenuOpen) {
+            return undefined;
+        }
+
+        const handleKeyDown = (event) => {
+            if (event.key === "Escape") {
+                setIsMenuOpen(false);
+            }
+        };
+
+        window.addEventListener("keydown", handleKeyDown);
+
+        return () => {
+            window.removeEventListener("keydown", handleKeyDown);
+        };
+    }, [isMenuOpen]);
+
     return (
         <header className="navbar-header">
             <nav className="navbar-container" aria-label="Navegación principal">
-                <a href="#" className="navbar-brand" aria-label="Ir al inicio" onClick={closeMenu}>
+                <a href="#page-top" className="navbar-brand" aria-label="Ir al inicio" onClick={closeMenu}>
                     <img
                         src={IMAGES.logo}
                         width={72}
@@ -114,6 +138,7 @@ export default function NavBar() {
                 <div
                     className={`navbar-menu ${isMenuOpen ? "is-open" : ""}`}
                     id="navbar-menu"
+                    aria-hidden={isMobileViewport && !isMenuOpen ? "true" : undefined}
                 >
                     <ul className="navbar-links">
                         {navLinks.map((link) => (
