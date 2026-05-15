@@ -13,11 +13,11 @@ export default function Projects() {
         <div className="projects-container">
           <div className="projects-header">
             <p className="projects-subtitle">
-              Portafolio
+              Experiencia practica
             </p>
 
             <h2 className="projects-title" id="projects-title">
-              Mis <span>Proyectos</span>
+              Proyectos y <span>soluciones</span>
             </h2>
           </div>
 
@@ -56,22 +56,71 @@ export default function Projects() {
                         {project.description}
                       </p>
 
-                      <a
-                          href={project.url}
-                          className="icon-link"
-                          target="_blank"
-                          rel="noopener noreferrer"
-                          aria-label={`Ver proyecto ${project.title}`}
-                      >
-                        <Icon
-                            icon="lineicons:link-2-angular-right"
-                            width={28}
-                            height={28}
-                            aria-hidden="true"
-                            focusable="false"
-                            className="icon-svg"
-                        />
-                      </a>
+                      {project.technologies?.length ? (
+                          <div className="project-tech-stack" aria-label={`Tecnologías usadas en ${project.title}`}>
+                            {project.technologies.map((tech) => (
+                                <span
+                                    key={`${project.id}-${tech.name}`}
+                                    className="project-tech-pill"
+                                    title={tech.name}
+                                >
+                                  <Icon
+                                      icon={`${tech.lib}:${tech.icon}`}
+                                      width={18}
+                                      height={18}
+                                      aria-hidden="true"
+                                      focusable="false"
+                                      className="project-tech-icon"
+                                  />
+                                  <span>{tech.name}</span>
+                                </span>
+                            ))}
+                          </div>
+                      ) : null}
+
+                      <div className="project-links" aria-label={`Enlaces del proyecto ${project.title}`}>
+                        {project.previewUrl && (
+                            <a
+                                href={project.previewUrl}
+                                className="project-link"
+                                target="_blank"
+                                rel="noopener noreferrer"
+                                aria-label={`Ver proyecto ${project.title}`}
+                            >
+                              <Icon
+                                  icon="lineicons:link-2-angular-right"
+                                  width={24}
+                                  height={24}
+                                  aria-hidden="true"
+                                  focusable="false"
+                                  className="project-link-icon"
+                              />
+
+                              <span>Ver proyecto</span>
+                            </a>
+                        )}
+
+                        {project.githubUrl && (
+                            <a
+                                href={project.githubUrl}
+                                className="project-link"
+                                target="_blank"
+                                rel="noopener noreferrer"
+                                aria-label={`Ver codigo fuente de ${project.title} en GitHub`}
+                            >
+                              <Icon
+                                  icon="lineicons:github"
+                                  width={24}
+                                  height={24}
+                                  aria-hidden="true"
+                                  focusable="false"
+                                  className="project-link-icon"
+                              />
+
+                              <span>Codigo fuente</span>
+                            </a>
+                        )}
+                      </div>
                     </div>
                   </article>
               );

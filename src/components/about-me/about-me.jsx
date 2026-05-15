@@ -35,14 +35,17 @@ export default function AboutMe() {
 
             <h1 className="about-me-title" id="about-me-title">
             <span className="developer-text">
-              Desarrollador Web
+              Desarrollador Full Stack
             </span>{" "}
-              Frontend/Backend
+              enfocado en soluciones web modernas
             </h1>
 
             <p className="about-me-description">
-              Lorem ipsum dolor sit amet consectetur adipisicing elit. Corrupti
-              ratione pariatur dolore?
+              Soy desarrollador Full Stack y me enfoco en crear aplicaciones
+              web funcionales, modernas y escalables. Busco aportar en equipos
+              de desarrollo, productos digitales y tambien colaborar en
+              proyectos freelance, cuidando tanto la experiencia del usuario
+              como la calidad tecnica de cada solucion.
             </p>
 
             <nav
@@ -71,11 +74,35 @@ export default function AboutMe() {
           </div>
 
           <div className="about-me-image-wrapper" aria-hidden="true">
-            <img
-                src={IMAGES.Banner}
-                alt=""
-                className="about-me-image"
-            />
+            <div className="about-me-image-stack">
+              <img
+                  src={IMAGES.bannerWhite}
+                  alt=""
+                  className="about-me-image"
+              />
+
+              <div className="availability-badge">
+                <div className="availability-avatar-ring">
+                  <img
+                      src={IMAGES.bannerWhite}
+                      alt=""
+                      className="availability-avatar"
+                  />
+                </div>
+
+                <div className="availability-pill">
+                  <span className="availability-dot" />
+                  <Icon
+                      icon="lineicons:briefcase"
+                      width={16}
+                      height={16}
+                      aria-hidden="true"
+                      focusable="false"
+                  />
+                  <span>Disponible para empleo y freelance</span>
+                </div>
+              </div>
+            </div>
           </div>
         </div>
       </section>

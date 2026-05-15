@@ -17,10 +17,18 @@ export default function ContactForm() {
           aria-labelledby="contact-title"
       >
         <div className="contact-content">
-          <form className="contact-form" onSubmit={handleSubmit}>
+          <form
+              className="contact-form"
+              onSubmit={handleSubmit}
+              aria-describedby="contact-form-help"
+          >
+            <p className="form-helper" id="contact-form-help">
+              Completa el formulario. Todos los campos son obligatorios.
+            </p>
+
             <div className="form-group">
               <label htmlFor="name">
-                Nombre
+                Nombre completo
               </label>
 
               <input
@@ -28,15 +36,22 @@ export default function ContactForm() {
                   name="name"
                   type="text"
                   className="field-text"
-                  placeholder="Tu nombre"
+                  placeholder="Tu nombre completo"
                   autoComplete="name"
+                  maxLength={80}
+                  minLength={3}
+                  aria-describedby="name-help"
                   required
               />
+
+              <p className="field-helper" id="name-help">
+                Entre 3 y 80 caracteres.
+              </p>
             </div>
 
             <div className="form-group">
               <label htmlFor="email">
-                Email
+                Correo electronico
               </label>
 
               <input
@@ -46,8 +61,15 @@ export default function ContactForm() {
                   className="field-text"
                   placeholder="tu@email.com"
                   autoComplete="email"
+                  inputMode="email"
+                  maxLength={120}
+                  aria-describedby="email-help"
                   required
               />
+
+              <p className="field-helper" id="email-help">
+                Usa un correo valido de hasta 120 caracteres.
+              </p>
             </div>
 
             <div className="form-group">
@@ -60,9 +82,16 @@ export default function ContactForm() {
                   name="message"
                   className="field-text text-area-custom"
                   placeholder="¿En qué puedo ayudarte?"
+                  rows={6}
+                  minLength={20}
                   maxLength={500}
+                  aria-describedby="message-help"
                   required
               />
+
+              <p className="field-helper" id="message-help">
+                Entre 20 y 500 caracteres.
+              </p>
             </div>
 
             <button type="submit" className="contact-button">
@@ -77,13 +106,14 @@ export default function ContactForm() {
 
             <h2 className="contact-title" id="contact-title">
               Trabajemos juntos
-              <span> y seamos creativos.</span>
+              <span> en tu equipo o proyecto.</span>
             </h2>
 
             <p className="contact-description">
-              Lorem ipsum dolor sit amet consectetur adipisicing elit.
-              Consectetur molestias optio, beatae incidunt illo cupiditate ut
-              ratione unde quibusdam atque!
+              Estoy abierto a oportunidades laborales como desarrollador y
+              tambien a colaboraciones freelance. Si buscas a alguien que pueda
+              aportar en frontend, backend o en el desarrollo completo de una
+              aplicacion web, sera un gusto conversar.
             </p>
           </div>
         </div>

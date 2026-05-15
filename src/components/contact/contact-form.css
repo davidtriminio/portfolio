@@ -22,6 +22,17 @@
     gap: 1rem;
 }
 
+.form-helper,
+.field-helper {
+    font-size: 0.875rem;
+    line-height: 1.5;
+    color: #525252;
+}
+
+.form-helper {
+    margin-bottom: 0.25rem;
+}
+
 .form-group {
     display: flex;
     flex-direction: column;
@@ -62,6 +73,8 @@
 .text-area-custom {
     min-height: 9rem;
     resize: vertical;
+    max-height: 14rem;
+    overflow-y: auto;
     line-height: 1.6;
 }
 
@@ -167,6 +180,10 @@
 
     .contact-button {
         width: 100%;
+    }
+
+    .text-area-custom {
+        max-height: 12rem;
     }
 }
 

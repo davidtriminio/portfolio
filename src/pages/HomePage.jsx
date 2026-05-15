@@ -7,12 +7,17 @@ import FooterComponent from "../components/footer/footer";
 
 const HomePage = () => {
     return (
-        <div className="max-w-[1400px] m-auto justify-center">
+        <div className="max-w-[1400px] m-auto justify-center" id="page-top">
+            <a href="#main-content" className="skip-link">
+                Saltar al contenido principal
+            </a>
             <NavBar/>
-            <AboutMe/>
-            <Skills/>
-            <Projects/>
-            <ContactForm/>
+            <main id="main-content">
+                <AboutMe/>
+                <Skills/>
+                <Projects/>
+                <ContactForm/>
+            </main>
             <FooterComponent/>
         </div>
     )

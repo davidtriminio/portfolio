@@ -1,4 +1,4 @@
-import {useState} from "react";
+import {useEffect, useState} from "react";
 import {IMAGES} from "../../const/images";
 import "./navbar.css";
 import {Icon} from "@iconify/react";
@@ -24,15 +24,84 @@ const navLinks = [
 
 export default function NavBar() {
     const [isMenuOpen, setIsMenuOpen] = useState(false);
+    const [activeSection, setActiveSection] = useState("#about-me");
+    const [isMobileViewport, setIsMobileViewport] = useState(false);
 
     const closeMenu = () => {
         setIsMenuOpen(false);
     };
 
+    useEffect(() => {
+        const sections = navLinks
+            .map((link) => document.querySelector(link.href))
+            .filter(Boolean);
+
+        const updateActiveSection = () => {
+            const navbarHeight = document.querySelector(".navbar-header")?.offsetHeight ?? 0;
+            const currentPosition = window.scrollY + navbarHeight + 120;
+
+            let currentSection = navLinks[0].href;
+
+            sections.forEach((section) => {
+                if (section.offsetTop <= currentPosition) {
+                    currentSection = `#${section.id}`;
+                }
+            });
+
+            setActiveSection(currentSection);
+        };
+
+        updateActiveSection();
+        window.addEventListener("scroll", updateActiveSection, { passive: true });
+        window.addEventListener("resize", updateActiveSection);
+
+        return () => {
+            window.removeEventListener("scroll", updateActiveSection);
+            window.removeEventListener("resize", updateActiveSection);
+        };
+    }, []);
+
+    useEffect(() => {
+        const handleResize = () => {
+            const mobileViewport = window.innerWidth <= 768;
+
+            setIsMobileViewport(mobileViewport);
+
+            if (!mobileViewport) {
+                setIsMenuOpen(false);
+            }
+        };
+
+        handleResize();
+        window.addEventListener("resize", handleResize);
+
+        return () => {
+            window.removeEventListener("resize", handleResize);
+        };
+    }, []);
+
+    useEffect(() => {
+        if (!isMenuOpen) {
+            return undefined;
+        }
+
+        const handleKeyDown = (event) => {
+            if (event.key === "Escape") {
+                setIsMenuOpen(false);
+            }
+        };
+
+        window.addEventListener("keydown", handleKeyDown);
+
+        return () => {
+            window.removeEventListener("keydown", handleKeyDown);
+        };
+    }, [isMenuOpen]);
+
     return (
         <header className="navbar-header">
             <nav className="navbar-container" aria-label="Navegación principal">
-                <a href="#" className="navbar-brand" aria-label="Ir al inicio" onClick={closeMenu}>
+                <a href="#page-top" className="navbar-brand" aria-label="Ir al inicio" onClick={closeMenu}>
                     <img
                         src={IMAGES.logo}
                         width={72}
@@ -69,14 +138,19 @@ export default function NavBar() {
                 <div
                     className={`navbar-menu ${isMenuOpen ? "is-open" : ""}`}
                     id="navbar-menu"
+                    aria-hidden={isMobileViewport && !isMenuOpen ? "true" : undefined}
                 >
                     <ul className="navbar-links">
                         {navLinks.map((link) => (
                             <li key={link.href}>
                                 <a
                                     href={link.href}
-                                    className="nav-link"
-                                    onClick={closeMenu}
+                                    className={`nav-link ${activeSection === link.href ? "is-active" : ""}`}
+                                    aria-current={activeSection === link.href ? "page" : undefined}
+                                    onClick={() => {
+                                        setActiveSection(link.href);
+                                        closeMenu();
+                                    }}
                                 >
                                     {link.label}
                                 </a>
