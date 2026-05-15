@@ -24,7 +24,7 @@ export default function FooterComponent() {
                 </a>
 
                 <p className="footer-copy">
-                    © {currentYear} David Triminio. Todos los derechos reservados.
+                    © {currentYear} David Triminio.
                 </p>
             </div>
         </footer>

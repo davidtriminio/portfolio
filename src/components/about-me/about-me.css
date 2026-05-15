@@ -109,13 +109,12 @@
     align-items: center;
     gap: 1rem;
     position: absolute;
-    right: 0.5rem;
     bottom: 0;
 }
 
 .availability-avatar-ring {
-    width: 4.6rem;
-    height: 4.6rem;
+    width: 8rem;
+    height: 8rem;
     border-radius: 999px;
     padding: 0.18rem;
     border: 1px solid rgba(16, 16, 17, 0.18);

@@ -13,11 +13,11 @@ export default function Projects() {
         <div className="projects-container">
           <div className="projects-header">
             <p className="projects-subtitle">
-              Portafolio
+              Experiencia practica
             </p>
 
             <h2 className="projects-title" id="projects-title">
-              Mis <span>Proyectos</span>
+              Proyectos y <span>soluciones</span>
             </h2>
           </div>
 
@@ -56,6 +56,28 @@ export default function Projects() {
                         {project.description}
                       </p>
 
+                      {project.technologies?.length ? (
+                          <div className="project-tech-stack" aria-label={`Tecnologías usadas en ${project.title}`}>
+                            {project.technologies.map((tech) => (
+                                <span
+                                    key={`${project.id}-${tech.name}`}
+                                    className="project-tech-pill"
+                                    title={tech.name}
+                                >
+                                  <Icon
+                                      icon={`${tech.lib}:${tech.icon}`}
+                                      width={18}
+                                      height={18}
+                                      aria-hidden="true"
+                                      focusable="false"
+                                      className="project-tech-icon"
+                                  />
+                                  <span>{tech.name}</span>
+                                </span>
+                            ))}
+                          </div>
+                      ) : null}
+
                       <div className="project-links" aria-label={`Enlaces del proyecto ${project.title}`}>
                         {project.previewUrl && (
                             <a
@@ -63,7 +85,7 @@ export default function Projects() {
                                 className="project-link"
                                 target="_blank"
                                 rel="noopener noreferrer"
-                                aria-label={`Ver preview de ${project.title}`}
+                                aria-label={`Ver proyecto ${project.title}`}
                             >
                               <Icon
                                   icon="lineicons:link-2-angular-right"
@@ -74,7 +96,7 @@ export default function Projects() {
                                   className="project-link-icon"
                               />
 
-                              <span>Preview</span>
+                              <span>Ver proyecto</span>
                             </a>
                         )}
 
@@ -84,7 +106,7 @@ export default function Projects() {
                                 className="project-link"
                                 target="_blank"
                                 rel="noopener noreferrer"
-                                aria-label={`Ver repositorio de ${project.title} en GitHub`}
+                                aria-label={`Ver codigo fuente de ${project.title} en GitHub`}
                             >
                               <Icon
                                   icon="lineicons:github"
@@ -95,7 +117,7 @@ export default function Projects() {
                                   className="project-link-icon"
                               />
 
-                              <span>GitHub</span>
+                              <span>Codigo fuente</span>
                             </a>
                         )}
                       </div>

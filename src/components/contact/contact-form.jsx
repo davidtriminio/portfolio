@@ -36,7 +36,7 @@ export default function ContactForm() {
 
             <div className="form-group">
               <label htmlFor="email">
-                Email
+                Correo electronico
               </label>
 
               <input
@@ -77,13 +77,14 @@ export default function ContactForm() {
 
             <h2 className="contact-title" id="contact-title">
               Trabajemos juntos
-              <span> y seamos creativos.</span>
+              <span> en tu equipo o proyecto.</span>
             </h2>
 
             <p className="contact-description">
-              Lorem ipsum dolor sit amet consectetur adipisicing elit.
-              Consectetur molestias optio, beatae incidunt illo cupiditate ut
-              ratione unde quibusdam atque!
+              Estoy abierto a oportunidades laborales como desarrollador y
+              tambien a colaboraciones freelance. Si buscas a alguien que pueda
+              aportar en frontend, backend o en el desarrollo completo de una
+              aplicacion web, sera un gusto conversar.
             </p>
           </div>
         </div>

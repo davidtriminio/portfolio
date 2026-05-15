@@ -35,14 +35,17 @@ export default function AboutMe() {
 
             <h1 className="about-me-title" id="about-me-title">
             <span className="developer-text">
-              Desarrollador Web
+              Desarrollador Full Stack
             </span>{" "}
-              Frontend/Backend
+              enfocado en soluciones web modernas
             </h1>
 
             <p className="about-me-description">
-              Lorem ipsum dolor sit amet consectetur adipisicing elit. Corrupti
-              ratione pariatur dolore?
+              Soy desarrollador Full Stack y me enfoco en crear aplicaciones
+              web funcionales, modernas y escalables. Busco aportar en equipos
+              de desarrollo, productos digitales y tambien colaborar en
+              proyectos freelance, cuidando tanto la experiencia del usuario
+              como la calidad tecnica de cada solucion.
             </p>
 
             <nav
@@ -96,7 +99,7 @@ export default function AboutMe() {
                       aria-hidden="true"
                       focusable="false"
                   />
-                  <span>Disponible para trabajar</span>
+                  <span>Disponible para empleo y freelance</span>
                 </div>
               </div>
             </div>

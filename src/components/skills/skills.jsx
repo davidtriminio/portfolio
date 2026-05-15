@@ -85,8 +85,8 @@ export default function Skills() {
         },
         {
             id: "deployment",
-            title: "Deploy & Hosting",
-            description: "Despliegue de aplicaciones frontend, backend y proyectos web en producción.",
+            title: "Despliegue y hosting",
+            description: "Publicacion y mantenimiento de aplicaciones web en entornos de produccion.",
             techs: deployment,
         },
         {
@@ -97,14 +97,14 @@ export default function Skills() {
         },
         {
             id: "design",
-            title: "Diseño UI",
-            description: "Base visual para crear interfaces limpias, consistentes y funcionales.",
+            title: "Diseno de interfaces",
+            description: "Criterio visual para crear interfaces limpias, consistentes y funcionales.",
             techs: design,
         },
         {
             id: "exploring",
             title: "Explorando",
-            description: "Tecnologías que estoy reforzando para ampliar mi perfil FullStack.",
+            description: "Tecnologias que estoy fortaleciendo para ampliar mi perfil como desarrollador Full Stack.",
             techs: exploring,
         },
     ]
@@ -117,7 +117,7 @@ export default function Skills() {
         >
             <div className="skills-header">
                 <p className="skills-subtitle">
-                    Stack FullStack Web
+                    Perfil tecnico
                 </p>
 
                 <h2 className="skills-title" id="skills-title">
@@ -125,9 +125,9 @@ export default function Skills() {
                 </h2>
 
                 <p className="skills-description">
-                    Tecnologías que utilizo para construir aplicaciones web completas,
-                    desde la interfaz hasta el backend, bases de datos, herramientas
-                    de desarrollo y despliegue en producción.
+                    Tecnologias y herramientas con las que desarrollo soluciones
+                    web completas, aportando tanto en interfaz como en logica de
+                    negocio, bases de datos y despliegue en produccion.
                 </p>
             </div>
 
