@@ -72,7 +72,7 @@ export default function AboutMe() {
 
           <div className="about-me-image-wrapper" aria-hidden="true">
             <img
-                src={IMAGES.Banner}
+                src={IMAGES.bannerWhite}
                 alt=""
                 className="about-me-image"
             />

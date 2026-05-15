@@ -56,22 +56,49 @@ export default function Projects() {
                         {project.description}
                       </p>
 
-                      <a
-                          href={project.url}
-                          className="icon-link"
-                          target="_blank"
-                          rel="noopener noreferrer"
-                          aria-label={`Ver proyecto ${project.title}`}
-                      >
-                        <Icon
-                            icon="lineicons:link-2-angular-right"
-                            width={28}
-                            height={28}
-                            aria-hidden="true"
-                            focusable="false"
-                            className="icon-svg"
-                        />
-                      </a>
+                      <div className="project-links" aria-label={`Enlaces del proyecto ${project.title}`}>
+                        {project.previewUrl && (
+                            <a
+                                href={project.previewUrl}
+                                className="project-link"
+                                target="_blank"
+                                rel="noopener noreferrer"
+                                aria-label={`Ver preview de ${project.title}`}
+                            >
+                              <Icon
+                                  icon="lineicons:link-2-angular-right"
+                                  width={24}
+                                  height={24}
+                                  aria-hidden="true"
+                                  focusable="false"
+                                  className="project-link-icon"
+                              />
+
+                              <span>Preview</span>
+                            </a>
+                        )}
+
+                        {project.githubUrl && (
+                            <a
+                                href={project.githubUrl}
+                                className="project-link"
+                                target="_blank"
+                                rel="noopener noreferrer"
+                                aria-label={`Ver repositorio de ${project.title} en GitHub`}
+                            >
+                              <Icon
+                                  icon="lineicons:github"
+                                  width={24}
+                                  height={24}
+                                  aria-hidden="true"
+                                  focusable="false"
+                                  className="project-link-icon"
+                              />
+
+                              <span>GitHub</span>
+                            </a>
+                        )}
+                      </div>
                     </div>
                   </article>
               );

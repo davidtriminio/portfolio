@@ -2,20 +2,21 @@
 
 export const projects = [
     {
-        id: 1,
-        title: "Proyecto 1",
-        description: "Descripción del proyecto.",
+        id: "portfolio",
+        title: "Portfolio Personal",
+        description: "Portfolio web desarrollado con React.",
         image: IMAGES.project1,
-        imageAlt: "Vista previa del Proyecto 1",
-        url: "#",
+        imageAlt: "Vista previa del portfolio personal",
+        previewUrl: "https://tu-preview.vercel.app",
+        githubUrl: "https://github.com/tuusuario/portfolio",
     },
     {
-        id: 2,
-        title: "Proyecto 2",
-        description:
-            "Lorem ipsum dolor sit amet consectetur adipisicing elit. Sit perferendis recusandae sed porro, ipsa adipisci quidem! Explicabo quis iste quisquam dicta quibusdam repudiandae deserunt totam.",
+        id: "landing-page",
+        title: "Landing Page",
+        description: "Landing page moderna y responsiva.",
         image: IMAGES.project2,
-        imageAlt: "Vista previa del Proyecto 2",
-        url: "#",
+        imageAlt: "Vista previa de landing page",
+        previewUrl: "https://landing-demo.vercel.app",
+        githubUrl: "",
     },
 ];
