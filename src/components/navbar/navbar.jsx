@@ -22,10 +22,11 @@ const navLinks = [
     },
 ];
 
-export default function NavBar() {
+export default function NavBar({ themePreference, setThemePreference }) {
     const [isMenuOpen, setIsMenuOpen] = useState(false);
     const [activeSection, setActiveSection] = useState("#about-me");
     const [isMobileViewport, setIsMobileViewport] = useState(false);
+    const brandLogo = themePreference === "dark" ? IMAGES.logo_white : IMAGES.logo;
 
     const closeMenu = () => {
         setIsMenuOpen(false);
@@ -103,7 +104,7 @@ export default function NavBar() {
             <nav className="navbar-container" aria-label="Navegación principal">
                 <a href="#page-top" className="navbar-brand" aria-label="Ir al inicio" onClick={closeMenu}>
                     <img
-                        src={IMAGES.logo}
+                        src={brandLogo}
                         width={72}
                         height={72}
                         alt=""
@@ -140,6 +141,46 @@ export default function NavBar() {
                     id="navbar-menu"
                     aria-hidden={isMobileViewport && !isMenuOpen ? "true" : undefined}
                 >
+                    <div className="theme-control" role="group" aria-label="Cambiar tema">
+                        <button
+                            type="button"
+                            className={`theme-icon-button ${themePreference === "dark" ? "is-active" : ""}`}
+                            onClick={() => {
+                                setThemePreference("dark");
+                            }}
+                            aria-pressed={themePreference === "dark"}
+                            aria-label="Activar modo oscuro"
+                            title="Modo oscuro"
+                        >
+                            <Icon
+                                icon="lineicons:moon-half-right-5"
+                                width={18}
+                                height={18}
+                                aria-hidden="true"
+                                focusable="false"
+                            />
+                        </button>
+
+                        <button
+                            type="button"
+                            className={`theme-icon-button ${themePreference === "light" ? "is-active" : ""}`}
+                            onClick={() => {
+                                setThemePreference("light");
+                            }}
+                            aria-pressed={themePreference === "light"}
+                            aria-label="Activar modo claro"
+                            title="Modo claro"
+                        >
+                            <Icon
+                                icon="lineicons:sun-1"
+                                width={18}
+                                height={18}
+                                aria-hidden="true"
+                                focusable="false"
+                            />
+                        </button>
+                    </div>
+
                     <ul className="navbar-links">
                         {navLinks.map((link) => (
                             <li key={link.href}>

@@ -1,6 +1,6 @@
-﻿.footer {
-    background-color: #101011;
-    color: #fff;
+.footer {
+    background-color: var(--color-bg-subtle);
+    color: var(--color-text);
     padding: 1rem;
     font-family: 'Sora', 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
 }
@@ -19,7 +19,7 @@
     display: inline-flex;
     align-items: center;
     gap: 0.5rem;
-    color: #fff;
+    color: var(--color-text);
     text-decoration: none;
     font-weight: 600;
 }
@@ -27,24 +27,21 @@
 .footer-logo {
     width: 40px;
     height: auto;
-    color: #fff;
+    color: var(--color-text);
     display: block;
 }
 
 .footer-copy {
     font-size: 0.875rem;
-    color: #d4d4d4;
+    color: var(--color-text-muted);
     text-align: right;
 }
 
 .footer-brand:focus-visible {
-    outline: 3px solid #fff;
+    outline: 3px solid var(--color-focus);
     outline-offset: 4px;
 }
 
-/*
-  En móvil centramos el contenido para que no se vea apretado.
-*/
 @media (max-width: 640px) {
     .footer-content {
         flex-direction: column;

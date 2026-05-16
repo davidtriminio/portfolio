@@ -84,7 +84,7 @@ export default function AboutMe() {
               <div className="availability-badge">
                 <div className="availability-avatar-ring">
                   <img
-                      src={IMAGES.bannerWhite}
+                      src={IMAGES.profilePic}
                       alt=""
                       className="availability-avatar"
                   />
