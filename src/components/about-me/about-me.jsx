@@ -6,12 +6,12 @@ import "../about-me/about-me.css";
 const socialLinks = [
   {
     name: "GitHub",
-    href: "https://github.com/",
+    href: "https://github.com/davidtriminio",
     icon: "lineicons:github",
   },
   {
     name: "LinkedIn",
-    href: "https://linkedin.com/",
+    href: "https://www.linkedin.com/in/davidtriminio/",
     icon: "lineicons:linkedin",
   },
 ];
@@ -84,7 +84,7 @@ export default function AboutMe() {
               <div className="availability-badge">
                 <div className="availability-avatar-ring">
                   <img
-                      src={IMAGES.bannerWhite}
+                      src={IMAGES.profilePic}
                       alt=""
                       className="availability-avatar"
                   />

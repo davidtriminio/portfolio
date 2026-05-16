@@ -15,31 +15,26 @@
 
 .skills-subtitle {
     margin-bottom: 0.5rem;
-
     font-size: 0.9rem;
     font-weight: 600;
     letter-spacing: 0.08em;
     text-transform: uppercase;
-
-    color: #232323;
+    color: var(--color-text-secondary);
     opacity: 0.75;
 }
 
 .skills-title {
     margin-bottom: 1rem;
-
     font-size: clamp(2rem, 5vw, 3rem);
     font-weight: 800;
     line-height: 1.1;
-
-    color: #101011;
+    color: var(--color-text);
 }
 
 .skills-description {
     font-size: clamp(0.95rem, 2vw, 1.05rem);
     line-height: 1.7;
-
-    color: #232323;
+    color: var(--color-text-secondary);
     opacity: 0.8;
 }
 
@@ -47,7 +42,6 @@
     width: 100%;
     max-width: 1180px;
     margin: 0 auto;
-
     display: grid;
     grid-template-columns: 1fr;
     gap: 1.25rem;
@@ -56,19 +50,14 @@
 .container-lang {
     width: 100%;
     min-height: 250px;
-
-    border: 2px solid #232323;
+    border: 2px solid var(--color-border);
     border-radius: 0.9rem;
-
     padding: 1.5rem;
-
     display: flex;
     flex-direction: column;
     justify-content: space-between;
     gap: 1.5rem;
-
     background-color: transparent;
-
     transition:
             transform 0.3s ease,
             box-shadow 0.3s ease,
@@ -77,8 +66,8 @@
 
 .container-lang:hover {
     transform: translateY(-4px);
-    border-color: #101011;
-    box-shadow: 0 14px 35px rgba(0, 0, 0, 0.08);
+    border-color: var(--color-border-strong);
+    box-shadow: var(--color-shadow-soft);
 }
 
 .skill-card-header {
@@ -87,56 +76,41 @@
 
 .skill-card-header h3 {
     margin-bottom: 0.6rem;
-
     font-size: 1.15rem;
     font-weight: 800;
     line-height: 1.3;
-
-    color: #101011;
+    color: var(--color-text);
 }
 
 .skill-card-header p {
     max-width: 420px;
     margin: 0 auto;
-
     font-size: 0.9rem;
     line-height: 1.6;
-
-    color: #232323;
+    color: var(--color-text-secondary);
     opacity: 0.75;
 }
 
-/*
-   Lista semántica para los iconos.
-   Evita usar botones cuando los iconos solo son informativos.
-*/
 .tech-icons {
     list-style: none;
-
     padding: 0;
     margin: 1.5rem 0 0;
-
     display: flex;
     flex-wrap: wrap;
     justify-content: center;
     gap: 0.85rem;
 }
 
-/* Contenedor visual de cada tecnología */
 .tech-icon {
     width: 56px;
     height: 56px;
-
-    border: 2px solid #101011;
+    border: 2px solid var(--color-border-strong);
     border-radius: 6px;
-
     display: flex;
     justify-content: center;
     align-items: center;
-
     background: transparent;
-    color: #101011;
-
+    color: var(--color-text);
     transition:
             background-color 0.6s ease,
             color 0.6s ease,
@@ -145,21 +119,17 @@
 
 .tech-icon svg {
     color: currentColor;
-
     transition:
             color 0.6s ease,
             transform 0.3s ease;
 }
 
 .tech-icon:hover {
-    background-color: #101011;
-    color: #ffffff;
+    background-color: var(--color-text);
+    color: var(--color-text-contrast);
     transform: translateY(-2px);
 }
 
-/*
-   Conservado por si en otra parte sigues usando botones sociales.
-*/
 .social-buttons {
     display: flex;
     flex-wrap: wrap;
@@ -169,19 +139,15 @@
 
 .social-buttons div,
 .social-buttons button {
-    border: 2px solid #101011;
+    border: 2px solid var(--color-border-strong);
     width: 56px;
     height: 56px;
-
     display: flex;
     justify-content: center;
     align-items: center;
-
     border-radius: 6px;
-
     background: transparent;
-    color: #101011;
-
+    color: var(--color-text);
     transition:
             background-color 0.6s ease,
             color 0.6s ease,
@@ -191,8 +157,8 @@
 
 .social-buttons div:hover,
 .social-buttons button:hover {
-    background-color: #101011;
-    color: #ffffff;
+    background-color: var(--color-text);
+    color: var(--color-text-contrast);
     transform: translateY(-2px);
 }
 
@@ -202,7 +168,6 @@
 .social-buttons button svg {
     font-size: 24px;
     color: currentColor;
-
     transition:
             color 0.6s ease,
             filter 0.6s ease;
@@ -212,20 +177,14 @@
 .social-buttons button:hover i,
 .social-buttons div:hover svg,
 .social-buttons button:hover svg {
-    color: #ffffff;
+    color: var(--color-text-contrast);
 }
 
-/*
-   Señal clara para navegación por teclado en elementos interactivos.
-*/
 .social-buttons button:focus-visible {
-    outline: 3px solid #101011;
+    outline: 3px solid var(--color-focus);
     outline-offset: 4px;
 }
 
-/*
-   Responsive: tablets.
-*/
 @media (min-width: 640px) {
     .skills-section {
         padding: 4.5rem 1.5rem;
@@ -236,9 +195,6 @@
     }
 }
 
-/*
-   Responsive: escritorio.
-*/
 @media (min-width: 1024px) {
     .skills-section {
         padding: 5rem 2rem;
@@ -250,9 +206,6 @@
     }
 }
 
-/*
-   Responsive: móviles pequeños.
-*/
 @media (max-width: 420px) {
     .skills-section {
         padding: 3rem 0.85rem;
@@ -278,9 +231,6 @@
     }
 }
 
-/*
-   Respeta usuarios que prefieren menos animaciones.
-*/
 @media (prefers-reduced-motion: reduce) {
     .container-lang,
     .tech-icon,
@@ -308,6 +258,14 @@
     height: 28px;
     object-fit: contain;
     transition: filter 0.25s ease;
+}
+
+:root[data-theme="dark"] .tech-icon-img {
+    filter: brightness(0) invert(1);
+}
+
+:root[data-theme="light"] .tech-icon-img {
+    filter: none;
 }
 
 .tech-icon:hover .tech-icon-img {

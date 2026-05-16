@@ -26,7 +26,7 @@
 .field-helper {
     font-size: 0.875rem;
     line-height: 1.5;
-    color: #525252;
+    color: var(--color-text-muted);
 }
 
 .form-helper {
@@ -42,15 +42,17 @@
 .form-group label {
     font-size: 0.95rem;
     font-weight: 600;
-    color: #101011;
+    color: var(--color-text);
 }
 
 .field-text {
-    border: 0.09375em solid #4f4f4f;
+    border: 0.09375em solid var(--color-border);
     border-radius: 8px;
     width: 100%;
     max-width: 28rem;
-    box-shadow: 0 0.125em 0.0625em #c3c3c3;
+    background-color: var(--color-input-bg);
+    color: var(--color-text);
+    box-shadow: 0 0.125em 0.0625em rgba(0, 0, 0, 0.08);
     padding: 0.875rem 1rem;
     font-size: 1rem;
     font-weight: 300;
@@ -62,12 +64,12 @@
 
 .field-text:focus {
     outline: none;
-    border-color: #101011;
-    box-shadow: 0 0 0 3px rgba(16, 16, 17, 0.15);
+    border-color: var(--color-border-strong);
+    box-shadow: 0 0 0 3px rgba(128, 128, 128, 0.18);
 }
 
 .field-text::placeholder {
-    color: #737373;
+    color: var(--color-placeholder);
 }
 
 .text-area-custom {
@@ -80,9 +82,9 @@
 
 .contact-button {
     width: fit-content;
-    border: 2px solid #101011;
-    background-color: #101011;
-    color: #fff;
+    border: 2px solid var(--color-border-strong);
+    background-color: var(--color-text);
+    color: var(--color-text-contrast);
     padding: 0.75rem 1.5rem;
     border-radius: 0.375rem;
     font-weight: 700;
@@ -94,21 +96,21 @@
 }
 
 .contact-button:hover {
-    background-color: #fff;
-    color: #101011;
+    background-color: transparent;
+    color: var(--color-text);
     transform: translateY(-2px);
 }
 
 .contact-button:focus-visible,
 .field-text:focus-visible {
-    outline: 3px solid #101011;
+    outline: 3px solid var(--color-focus);
     outline-offset: 4px;
 }
 
 .contact-subtitle {
     font-size: 0.95rem;
     font-weight: 700;
-    color: #525252;
+    color: var(--color-text-muted);
     margin-bottom: 0.75rem;
     text-transform: uppercase;
     letter-spacing: 0.08em;
@@ -118,7 +120,7 @@
     font-size: clamp(2rem, 5vw, 2.5rem);
     font-weight: 900;
     line-height: 1.2;
-    color: #101011;
+    color: var(--color-text);
 }
 
 .contact-title span {
@@ -131,12 +133,9 @@
     font-size: 1rem;
     font-weight: 300;
     line-height: 1.7;
-    color: #525252;
+    color: var(--color-text-muted);
 }
 
-/*
-  En tablets reducimos separación para mantener equilibrio visual.
-*/
 @media (max-width: 1024px) {
     .contact-section {
         padding: 2.5rem 2rem;
@@ -147,9 +146,6 @@
     }
 }
 
-/*
-  En móvil el formulario y el texto pasan a una sola columna.
-*/
 @media (max-width: 768px) {
     .contact-section {
         padding: 2rem 1.25rem;
@@ -187,9 +183,6 @@
     }
 }
 
-/*
-  En pantallas pequeñas evitamos que el texto se sienta demasiado grande.
-*/
 @media (max-width: 420px) {
     .contact-section {
         padding: 1.5rem 1rem;
