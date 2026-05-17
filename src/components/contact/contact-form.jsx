@@ -2,9 +2,36 @@ import { useState } from "react";
 import "./contact-form.css";
 
 const CONTACT_EMAIL = "davidtriminio21@gmail.com";
+const NAME_MIN_LENGTH = 3;
+const NAME_MAX_LENGTH = 80;
+const EMAIL_MAX_LENGTH = 120;
+const MESSAGE_MIN_LENGTH = 20;
+const MESSAGE_MAX_LENGTH = 500;
+const EMAIL_REGEX = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
+const FIELD_MAX_LENGTHS = {
+  name: NAME_MAX_LENGTH,
+  email: EMAIL_MAX_LENGTH,
+  message: MESSAGE_MAX_LENGTH,
+};
 
 export default function ContactForm() {
   const [submitMessage, setSubmitMessage] = useState("");
+  const [formValues, setFormValues] = useState({
+    name: "",
+    email: "",
+    message: "",
+  });
+
+  const handleChange = (event) => {
+    const { name, value } = event.target;
+    const maxLength = FIELD_MAX_LENGTHS[name];
+    const nextValue = typeof maxLength === "number" ? value.slice(0, maxLength) : value;
+
+    setFormValues((currentValues) => ({
+      ...currentValues,
+      [name]: nextValue,
+    }));
+  };
 
   const handleSubmit = (event) => {
     event.preventDefault();
@@ -26,8 +53,20 @@ export default function ContactForm() {
 
     window.location.href = `mailto:${CONTACT_EMAIL}?subject=${subject}&body=${body}`;
     setSubmitMessage("Se preparo tu mensaje en tu cliente de correo.");
+    setFormValues({
+      name: "",
+      email: "",
+      message: "",
+    });
     event.currentTarget.reset();
   };
+
+  const messageLength = formValues.message.trim().length;
+  const nameLength = formValues.name.trim().length;
+  const emailLength = formValues.email.trim().length;
+  const isNameValid = nameLength >= NAME_MIN_LENGTH;
+  const isEmailValid = EMAIL_REGEX.test(formValues.email.trim());
+  const isMessageValid = messageLength >= MESSAGE_MIN_LENGTH;
 
   return (
       <section
@@ -46,9 +85,18 @@ export default function ContactForm() {
             </p>
 
             <div className="form-group">
-              <label htmlFor="name">
-                Nombre completo
-              </label>
+              <div className="field-head">
+                <label htmlFor="name">
+                  Nombre completo
+                </label>
+
+                <span
+                    className={`field-counter ${isNameValid ? "is-valid" : "is-invalid"}`}
+                    aria-live="polite"
+                >
+                  {formValues.name.length}/{NAME_MAX_LENGTH}
+                </span>
+              </div>
 
               <input
                   id="name"
@@ -57,21 +105,32 @@ export default function ContactForm() {
                   className="field-text"
                   placeholder="Tu nombre completo"
                   autoComplete="name"
-                  maxLength={80}
-                  minLength={3}
+                  maxLength={NAME_MAX_LENGTH}
+                  minLength={NAME_MIN_LENGTH}
+                  value={formValues.name}
+                  onChange={handleChange}
                   aria-describedby="name-help"
                   required
               />
 
               <p className="field-helper" id="name-help">
-                Entre 3 y 80 caracteres.
+                Entre {NAME_MIN_LENGTH} y {NAME_MAX_LENGTH} caracteres.
               </p>
             </div>
 
             <div className="form-group">
-              <label htmlFor="email">
-                Correo electronico
-              </label>
+              <div className="field-head">
+                <label htmlFor="email">
+                  Correo electronico
+                </label>
+
+                <span
+                    className={`field-counter ${isEmailValid ? "is-valid" : "is-invalid"}`}
+                    aria-live="polite"
+                >
+                  {formValues.email.length}/{EMAIL_MAX_LENGTH}
+                </span>
+              </div>
 
               <input
                   id="email"
@@ -81,20 +140,31 @@ export default function ContactForm() {
                   placeholder="tu@email.com"
                   autoComplete="email"
                   inputMode="email"
-                  maxLength={120}
+                  maxLength={EMAIL_MAX_LENGTH}
+                  value={formValues.email}
+                  onChange={handleChange}
                   aria-describedby="email-help"
                   required
               />
 
               <p className="field-helper" id="email-help">
-                Usa un correo valido de hasta 120 caracteres.
+                Usa un correo valido de hasta {EMAIL_MAX_LENGTH} caracteres.
               </p>
             </div>
 
             <div className="form-group">
-              <label htmlFor="message">
-                Mensaje
-              </label>
+              <div className="field-head">
+                <label htmlFor="message">
+                  Mensaje
+                </label>
+
+                <span
+                    className={`field-counter ${isMessageValid ? "is-valid" : "is-invalid"}`}
+                    aria-live="polite"
+                >
+                  {messageLength}/{MESSAGE_MAX_LENGTH}
+                </span>
+              </div>
 
               <textarea
                   id="message"
@@ -102,14 +172,16 @@ export default function ContactForm() {
                   className="field-text text-area-custom"
                   placeholder="¿En qué puedo ayudarte?"
                   rows={6}
-                  minLength={20}
-                  maxLength={500}
+                  minLength={MESSAGE_MIN_LENGTH}
+                  maxLength={MESSAGE_MAX_LENGTH}
+                  value={formValues.message}
+                  onChange={handleChange}
                   aria-describedby="message-help"
                   required
               />
 
               <p className="field-helper" id="message-help">
-                Entre 20 y 500 caracteres.
+                Entre {MESSAGE_MIN_LENGTH} y {MESSAGE_MAX_LENGTH} caracteres.
               </p>
             </div>
 
