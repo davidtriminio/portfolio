@@ -1,13 +1,32 @@
+import { useState } from "react";
 import "./contact-form.css";
 
+const CONTACT_EMAIL = "davidtriminio21@gmail.com";
+
 export default function ContactForm() {
+  const [submitMessage, setSubmitMessage] = useState("");
+
   const handleSubmit = (event) => {
     event.preventDefault();
+    const formData = new FormData(event.currentTarget);
+    const name = String(formData.get("name") || "").trim();
+    const email = String(formData.get("email") || "").trim();
+    const message = String(formData.get("message") || "").trim();
 
-    /*
-      Aquí luego puedes conectar EmailJS, Formspree, Netlify Forms
-      o tu propio backend para enviar el mensaje.
-    */
+    const subject = encodeURIComponent(`Nuevo contacto desde el portafolio - ${name}`);
+    const body = encodeURIComponent(
+      [
+        `Nombre: ${name}`,
+        `Correo: ${email}`,
+        "",
+        "Mensaje:",
+        message,
+      ].join("\n")
+    );
+
+    window.location.href = `mailto:${CONTACT_EMAIL}?subject=${subject}&body=${body}`;
+    setSubmitMessage("Se preparo tu mensaje en tu cliente de correo.");
+    event.currentTarget.reset();
   };
 
   return (
@@ -97,6 +116,12 @@ export default function ContactForm() {
             <button type="submit" className="contact-button">
               Enviar mensaje
             </button>
+
+            {submitMessage ? (
+              <p className="form-status" role="status" aria-live="polite">
+                {submitMessage}
+              </p>
+            ) : null}
           </form>
 
           <div className="contact-info">
@@ -115,6 +140,14 @@ export default function ContactForm() {
               aportar en frontend, backend o en el desarrollo completo de una
               aplicacion web, sera un gusto conversar.
             </p>
+
+            <a
+                href={`mailto:${CONTACT_EMAIL}`}
+                className="contact-email-link"
+                aria-label={`Enviar correo a ${CONTACT_EMAIL}`}
+            >
+              {CONTACT_EMAIL}
+            </a>
           </div>
         </div>
       </section>
