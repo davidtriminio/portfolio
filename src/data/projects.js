@@ -35,7 +35,12 @@ export const projects = [
         ],
         previewUrl: "https://promptforge.davidtriminio.dev",
         githubUrl: "https://github.com/davidtriminio/promptforge",
+        demoAccess: {
+            label: "Probar demo",
+            url: "https://promptforge.davidtriminio.dev/demo",
+        },
         demoCredentials: {
+            visible: false,
             title: "Credenciales de prueba",
             note: "Usa una cuenta demo limitada y sin informacion sensible.",
             items: [
