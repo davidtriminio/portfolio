@@ -186,7 +186,42 @@
     margin-bottom: 1.25rem;
 }
 
+.project-demo-button {
+    width: 100%;
+    max-width: 18rem;
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    gap: 0.65rem;
+    min-height: 3rem;
+    padding: 0.8rem 1.15rem;
+    border: 1px solid var(--color-border-strong);
+    border-radius: 999px;
+    background-color: transparent;
+    color: var(--color-text);
+    text-decoration: none;
+    font-size: 0.95rem;
+    font-weight: 700;
+    transition:
+            background-color 0.3s ease,
+            color 0.3s ease,
+            transform 0.3s ease,
+            border-color 0.3s ease;
+}
+
+.project-demo-button:hover {
+    background-color: var(--color-text);
+    color: var(--color-text-contrast);
+    transform: translateY(-2px);
+}
+
+.project-demo-button-icon {
+    flex-shrink: 0;
+    color: currentColor;
+}
+
 .project-demo-box {
+    margin-top: 1rem;
     margin-bottom: 1.5rem;
     padding: 1rem;
     border: 1px solid var(--color-border-soft);
@@ -286,6 +321,7 @@
 
 .project-image-button:focus-visible,
 .project-gallery-thumb:focus-visible,
+.project-demo-button:focus-visible,
 .project-modal-close:focus-visible,
 .project-modal-thumb:focus-visible {
     outline: 3px solid var(--color-focus);
@@ -447,6 +483,10 @@
     .project-tech-stack,
     .project-links {
         justify-content: center;
+    }
+
+    .project-demo-button {
+        max-width: none;
     }
 
     .project-demo-box {

@@ -203,7 +203,29 @@ export default function Projects() {
                       </div>
                     ) : null}
 
-                    {project.demoCredentials ? (
+                    {project.demoAccess ? (
+                      <a
+                        href={project.demoAccess.url}
+                        className="project-demo-button"
+                        target="_blank"
+                        rel="noopener noreferrer"
+                        aria-label={`${project.demoAccess.label} de ${project.title}`}
+                      >
+                        <Icon
+                          icon="solar:rocket-bold-duotone"
+                          width={20}
+                          height={20}
+                          aria-hidden="true"
+                          focusable="false"
+                          className="project-demo-button-icon"
+                        />
+
+                        <span>{project.demoAccess.label}</span>
+                      </a>
+                    ) : null}
+
+                    {project.demoCredentials &&
+                    project.demoCredentials.visible !== false ? (
                       <div className="project-demo-box" aria-label={`Credenciales de prueba para ${project.title}`}>
                         <p className="project-demo-title">
                           {project.demoCredentials.title}
