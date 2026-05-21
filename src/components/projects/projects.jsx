@@ -1,10 +1,28 @@
 import React, { useEffect, useState } from "react";
 import { Icon } from "@iconify/react";
 import { projects } from "../../data/projects";
+import { useLanguage } from "../../context/language-context.jsx";
 import "./projects.css";
 
 export default function Projects() {
+  const { language, t } = useLanguage();
   const [activeGallery, setActiveGallery] = useState(null);
+
+  const getLocalizedValue = (value) => {
+    if (typeof value === "string") {
+      return value;
+    }
+
+    return value?.[language] ?? value?.es ?? "";
+  };
+
+  const getLocalizedList = (value) => {
+    if (Array.isArray(value)) {
+      return value;
+    }
+
+    return value?.[language] ?? value?.es ?? [];
+  };
 
   useEffect(() => {
     if (!activeGallery) {
@@ -59,11 +77,14 @@ export default function Projects() {
 
   const openGallery = (project, initialIndex = 0) => {
     const images = project.gallery?.length
-      ? project.gallery
-      : [{ src: project.image, alt: project.imageAlt }];
+      ? project.gallery.map((image) => ({
+          src: image.src,
+          alt: getLocalizedValue(image.alt),
+        }))
+      : [{ src: project.image, alt: getLocalizedValue(project.imageAlt) }];
 
     setActiveGallery({
-      projectTitle: project.title,
+      projectTitle: getLocalizedValue(project.title),
       images,
       currentIndex: initialIndex,
     });
@@ -92,11 +113,11 @@ export default function Projects() {
         <div className="projects-container">
           <div className="projects-header">
             <p className="projects-subtitle">
-              Experiencia practica
+              {t.projects.subtitle}
             </p>
 
             <h2 className="projects-title" id="projects-title">
-              Proyectos y <span>soluciones</span>
+              {t.projects.titleLead} <span>{t.projects.titleHighlight}</span>
             </h2>
           </div>
 
@@ -104,8 +125,17 @@ export default function Projects() {
             {projects.map((project, index) => {
               const isReversed = index % 2 !== 0;
               const galleryImages = project.gallery?.length
-                ? project.gallery
-                : [{ src: project.image, alt: project.imageAlt }];
+                ? project.gallery.map((image) => ({
+                    src: image.src,
+                    alt: getLocalizedValue(image.alt),
+                  }))
+                : [{ src: project.image, alt: getLocalizedValue(project.imageAlt) }];
+              const projectTitle = getLocalizedValue(project.title);
+              const projectDescription = getLocalizedValue(project.description);
+              const demoButtonLabel = getLocalizedValue(project.demoAccess?.label) || t.projects.demoButtonDefault;
+              const demoCredentialsTitle = getLocalizedValue(project.demoCredentials?.title);
+              const demoCredentialsNote = getLocalizedValue(project.demoCredentials?.note);
+              const demoCredentialsItems = getLocalizedList(project.demoCredentials?.items);
 
               return (
                 <article
@@ -120,7 +150,7 @@ export default function Projects() {
                       onClick={() => {
                         openGallery(project, 0);
                       }}
-                      aria-label={`Abrir galeria de imagenes de ${project.title}`}
+                      aria-label={`${t.projects.openGallery} ${projectTitle}`}
                     >
                       <img
                         src={galleryImages[0].src}
@@ -137,12 +167,12 @@ export default function Projects() {
                           aria-hidden="true"
                           focusable="false"
                         />
-                        <span>Ver galeria</span>
+                        <span>{t.projects.gallery}</span>
                       </span>
                     </button>
 
                     {galleryImages.length > 1 ? (
-                      <div className="project-gallery-strip" aria-label={`Miniaturas de ${project.title}`}>
+                      <div className="project-gallery-strip" aria-label={`${t.projects.thumbnailsOf} ${projectTitle}`}>
                         {galleryImages.map((image, imageIndex) => (
                           <button
                             type="button"
@@ -151,7 +181,7 @@ export default function Projects() {
                             onClick={() => {
                               openGallery(project, imageIndex);
                             }}
-                            aria-label={`Abrir imagen ${imageIndex + 1} de ${project.title}`}
+                            aria-label={`${t.projects.viewScreenshot} ${imageIndex + 1} de ${projectTitle}`}
                           >
                             <img
                               src={image.src}
@@ -174,15 +204,15 @@ export default function Projects() {
                       className="project-name"
                       id={`project-${project.id}-title`}
                     >
-                      {project.title}
+                      {projectTitle}
                     </h3>
 
                     <p className="project-description">
-                      {project.description}
+                      {projectDescription}
                     </p>
 
                     {project.technologies?.length ? (
-                      <div className="project-tech-stack" aria-label={`Tecnologías usadas en ${project.title}`}>
+                      <div className="project-tech-stack" aria-label={`${t.projects.technologiesUsed} ${projectTitle}`}>
                         {project.technologies.map((tech) => (
                           <span
                             key={`${project.id}-${tech.name}`}
@@ -209,7 +239,7 @@ export default function Projects() {
                         className="project-demo-button"
                         target="_blank"
                         rel="noopener noreferrer"
-                        aria-label={`${project.demoAccess.label} de ${project.title}`}
+                        aria-label={`${demoButtonLabel} de ${projectTitle}`}
                       >
                         <Icon
                           icon="solar:rocket-bold-duotone"
@@ -220,25 +250,25 @@ export default function Projects() {
                           className="project-demo-button-icon"
                         />
 
-                        <span>{project.demoAccess.label}</span>
+                        <span>{demoButtonLabel}</span>
                       </a>
                     ) : null}
 
                     {project.demoCredentials &&
                     project.demoCredentials.visible !== false ? (
-                      <div className="project-demo-box" aria-label={`Credenciales de prueba para ${project.title}`}>
+                      <div className="project-demo-box" aria-label={`${t.projects.demoCredentialsLabel} ${projectTitle}`}>
                         <p className="project-demo-title">
-                          {project.demoCredentials.title}
+                          {demoCredentialsTitle}
                         </p>
 
-                        {project.demoCredentials.note ? (
+                        {demoCredentialsNote ? (
                           <p className="project-demo-note">
-                            {project.demoCredentials.note}
+                            {demoCredentialsNote}
                           </p>
                         ) : null}
 
                         <ul className="project-demo-list">
-                          {project.demoCredentials.items.map((item) => (
+                          {demoCredentialsItems.map((item) => (
                             <li key={`${project.id}-${item}`}>
                               {item}
                             </li>
@@ -247,14 +277,14 @@ export default function Projects() {
                       </div>
                     ) : null}
 
-                    <div className="project-links" aria-label={`Enlaces del proyecto ${project.title}`}>
+                    <div className="project-links" aria-label={`${t.projects.projectLinksLabel} ${projectTitle}`}>
                       <button
                         type="button"
                         className="project-link"
                         onClick={() => {
                           openGallery(project, 0);
                         }}
-                        aria-label={`Abrir galeria del proyecto ${project.title}`}
+                        aria-label={`${t.projects.openGallery} ${projectTitle}`}
                       >
                         <Icon
                           icon="lineicons:image-multiple"
@@ -265,7 +295,7 @@ export default function Projects() {
                           className="project-link-icon"
                         />
 
-                        <span>Capturas</span>
+                        <span>{t.projects.screenshots}</span>
                       </button>
 
                       {project.previewUrl && (
@@ -274,7 +304,7 @@ export default function Projects() {
                           className="project-link"
                           target="_blank"
                           rel="noopener noreferrer"
-                          aria-label={`Ver proyecto ${project.title}`}
+                          aria-label={`${t.projects.viewProject} ${projectTitle}`}
                         >
                           <Icon
                             icon="lineicons:link-2-angular-right"
@@ -285,7 +315,7 @@ export default function Projects() {
                             className="project-link-icon"
                           />
 
-                          <span>Ver proyecto</span>
+                          <span>{t.projects.viewProject}</span>
                         </a>
                       )}
 
@@ -295,7 +325,7 @@ export default function Projects() {
                           className="project-link"
                           target="_blank"
                           rel="noopener noreferrer"
-                          aria-label={`Ver codigo fuente de ${project.title} en GitHub`}
+                          aria-label={`${t.projects.sourceCodeAria} ${projectTitle} en GitHub`}
                         >
                           <Icon
                             icon="lineicons:github"
@@ -306,7 +336,7 @@ export default function Projects() {
                             className="project-link-icon"
                           />
 
-                          <span>Codigo fuente</span>
+                          <span>{t.projects.sourceCode}</span>
                         </a>
                       )}
                     </div>
@@ -337,7 +367,7 @@ export default function Projects() {
             <div className="project-modal-header">
               <div>
                 <p className="project-modal-subtitle">
-                  Vista previa
+                  {t.projects.preview}
                 </p>
                 <h3 className="project-modal-title" id="project-modal-title">
                   {activeGallery.projectTitle}
@@ -350,7 +380,7 @@ export default function Projects() {
                 onClick={() => {
                   setActiveGallery(null);
                 }}
-                aria-label="Cerrar galeria"
+                aria-label={t.projects.closeGallery}
               >
                 <Icon
                   icon="lineicons:close"
@@ -371,7 +401,7 @@ export default function Projects() {
             </div>
 
             {activeGallery.images.length > 1 ? (
-              <div className="project-modal-thumbs" aria-label="Selector de capturas">
+              <div className="project-modal-thumbs" aria-label={t.projects.screenshotSelector}>
                 {activeGallery.images.map((image, imageIndex) => (
                   <button
                     type="button"
@@ -380,7 +410,7 @@ export default function Projects() {
                     onClick={() => {
                       changeGalleryIndex(imageIndex);
                     }}
-                    aria-label={`Ver captura ${imageIndex + 1}`}
+                    aria-label={`${t.projects.viewScreenshot} ${imageIndex + 1}`}
                   >
                     <img
                       src={image.src}
