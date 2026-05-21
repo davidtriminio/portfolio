@@ -48,6 +48,12 @@
     gap: 1.25rem;
 }
 
+.navbar-controls {
+    display: flex;
+    align-items: center;
+    gap: 0.75rem;
+}
+
 .theme-control {
     display: flex;
     align-items: center;
@@ -80,6 +86,43 @@
 }
 
 .theme-icon-button.is-active {
+    background-color: var(--color-text);
+    color: var(--color-text-contrast);
+}
+
+.language-switch {
+    display: inline-flex;
+    align-items: center;
+    gap: 0.35rem;
+    padding: 0.2rem;
+    border: 1px solid var(--color-border-soft);
+    border-radius: 999px;
+    background-color: var(--color-bg-elevated);
+}
+
+.language-button {
+    min-width: 2.75rem;
+    height: 2.5rem;
+    padding: 0 0.85rem;
+    border: 0;
+    border-radius: 999px;
+    background: transparent;
+    color: var(--color-text-muted);
+    font-size: 0.85rem;
+    font-weight: 700;
+    cursor: pointer;
+    transition:
+            background-color 0.25s ease,
+            color 0.25s ease,
+            transform 0.25s ease;
+}
+
+.language-button:hover {
+    color: var(--color-text);
+    transform: translateY(-1px);
+}
+
+.language-button.is-active {
     background-color: var(--color-text);
     color: var(--color-text-contrast);
 }
@@ -127,7 +170,8 @@
 .cv-button:focus-visible,
 .navbar-toggle:focus-visible,
 .navbar-brand:focus-visible,
-.theme-icon-button:focus-visible {
+.theme-icon-button:focus-visible,
+.language-button:focus-visible {
     outline: 3px solid var(--color-focus);
     outline-offset: 4px;
 }
@@ -176,6 +220,10 @@
 
     .navbar-menu {
         gap: 1rem;
+    }
+
+    .navbar-controls {
+        gap: 0.5rem;
     }
 
     .navbar-links {
@@ -247,6 +295,11 @@
     }
 
     .theme-control {
+        width: fit-content;
+        align-self: center;
+    }
+
+    .language-switch {
         width: fit-content;
         align-self: center;
     }

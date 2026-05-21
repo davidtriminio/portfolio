@@ -2,38 +2,44 @@ import {useEffect, useState} from "react";
 import {IMAGES} from "../../const/images";
 import "./navbar.css";
 import {Icon} from "@iconify/react";
+import { useLanguage } from "../../context/language-context.jsx";
 
-const navLinks = [
+const NAV_ITEMS = [
     {
-        label: "Sobre Mí",
+        key: "about",
         href: "#about-me",
     },
     {
-        label: "Habilidades",
+        key: "skills",
         href: "#skills",
     },
     {
-        label: "Proyectos",
+        key: "projects",
         href: "#projects",
     },
     {
-        label: "Contacto",
+        key: "contact",
         href: "#contact",
     },
 ];
 
 export default function NavBar({ themePreference, setThemePreference }) {
+    const { language, setLanguage, t } = useLanguage();
     const [isMenuOpen, setIsMenuOpen] = useState(false);
     const [activeSection, setActiveSection] = useState("#about-me");
     const [isMobileViewport, setIsMobileViewport] = useState(false);
     const brandLogo = themePreference === "dark" ? IMAGES.logo_white : IMAGES.logo;
+    const navLinks = NAV_ITEMS.map((item) => ({
+        href: item.href,
+        label: t.navbar.links[item.key],
+    }));
 
     const closeMenu = () => {
         setIsMenuOpen(false);
     };
 
     useEffect(() => {
-        const sections = navLinks
+        const sections = NAV_ITEMS
             .map((link) => document.querySelector(link.href))
             .filter(Boolean);
 
@@ -41,7 +47,7 @@ export default function NavBar({ themePreference, setThemePreference }) {
             const navbarHeight = document.querySelector(".navbar-header")?.offsetHeight ?? 0;
             const currentPosition = window.scrollY + navbarHeight + 120;
 
-            let currentSection = navLinks[0].href;
+            let currentSection = NAV_ITEMS[0].href;
 
             sections.forEach((section) => {
                 if (section.offsetTop <= currentPosition) {
@@ -101,8 +107,8 @@ export default function NavBar({ themePreference, setThemePreference }) {
 
     return (
         <header className="navbar-header">
-            <nav className="navbar-container" aria-label="Navegación principal">
-                <a href="#page-top" className="navbar-brand" aria-label="Ir al inicio" onClick={closeMenu}>
+            <nav className="navbar-container" aria-label={t.navbar.ariaLabel}>
+                <a href="#page-top" className="navbar-brand" aria-label={t.navbar.goHome} onClick={closeMenu}>
                     <img
                         src={brandLogo}
                         width={72}
@@ -120,7 +126,7 @@ export default function NavBar({ themePreference, setThemePreference }) {
                 <button
                     type="button"
                     className="navbar-toggle"
-                    aria-label={isMenuOpen ? "Cerrar menú" : "Abrir menú"}
+                    aria-label={isMenuOpen ? t.navbar.closeMenu : t.navbar.openMenu}
                     aria-expanded={isMenuOpen}
                     aria-controls="navbar-menu"
                     onClick={() => {
@@ -141,44 +147,72 @@ export default function NavBar({ themePreference, setThemePreference }) {
                     id="navbar-menu"
                     aria-hidden={isMobileViewport && !isMenuOpen ? "true" : undefined}
                 >
-                    <div className="theme-control" role="group" aria-label="Cambiar tema">
-                        <button
-                            type="button"
-                            className={`theme-icon-button ${themePreference === "dark" ? "is-active" : ""}`}
-                            onClick={() => {
-                                setThemePreference("dark");
-                            }}
-                            aria-pressed={themePreference === "dark"}
-                            aria-label="Activar modo oscuro"
-                            title="Modo oscuro"
-                        >
-                            <Icon
-                                icon="lineicons:moon-half-right-5"
-                                width={18}
-                                height={18}
-                                aria-hidden="true"
-                                focusable="false"
-                            />
-                        </button>
+                    <div className="navbar-controls">
+                        <div className="theme-control" role="group" aria-label={t.navbar.changeTheme}>
+                            <button
+                                type="button"
+                                className={`theme-icon-button ${themePreference === "dark" ? "is-active" : ""}`}
+                                onClick={() => {
+                                    setThemePreference("dark");
+                                }}
+                                aria-pressed={themePreference === "dark"}
+                                aria-label={t.common.darkMode}
+                                title={t.common.darkMode}
+                            >
+                                <Icon
+                                    icon="lineicons:moon-half-right-5"
+                                    width={18}
+                                    height={18}
+                                    aria-hidden="true"
+                                    focusable="false"
+                                />
+                            </button>
 
-                        <button
-                            type="button"
-                            className={`theme-icon-button ${themePreference === "light" ? "is-active" : ""}`}
-                            onClick={() => {
-                                setThemePreference("light");
-                            }}
-                            aria-pressed={themePreference === "light"}
-                            aria-label="Activar modo claro"
-                            title="Modo claro"
-                        >
-                            <Icon
-                                icon="lineicons:sun-1"
-                                width={18}
-                                height={18}
-                                aria-hidden="true"
-                                focusable="false"
-                            />
-                        </button>
+                            <button
+                                type="button"
+                                className={`theme-icon-button ${themePreference === "light" ? "is-active" : ""}`}
+                                onClick={() => {
+                                    setThemePreference("light");
+                                }}
+                                aria-pressed={themePreference === "light"}
+                                aria-label={t.common.lightMode}
+                                title={t.common.lightMode}
+                            >
+                                <Icon
+                                    icon="lineicons:sun-1"
+                                    width={18}
+                                    height={18}
+                                    aria-hidden="true"
+                                    focusable="false"
+                                />
+                            </button>
+                        </div>
+
+                        <div className="language-switch" role="group" aria-label={t.common.language}>
+                            <button
+                                type="button"
+                                className={`language-button ${language === "es" ? "is-active" : ""}`}
+                                onClick={() => {
+                                    setLanguage("es");
+                                }}
+                                aria-pressed={language === "es"}
+                                title="Español"
+                            >
+                                ES
+                            </button>
+
+                            <button
+                                type="button"
+                                className={`language-button ${language === "en" ? "is-active" : ""}`}
+                                onClick={() => {
+                                    setLanguage("en");
+                                }}
+                                aria-pressed={language === "en"}
+                                title="English"
+                            >
+                                EN
+                            </button>
+                        </div>
                     </div>
 
                     <ul className="navbar-links">
@@ -200,14 +234,14 @@ export default function NavBar({ themePreference, setThemePreference }) {
                     </ul>
 
                     <a
-                        href="/David-Triminio-CV.pdf"
+                        href={t.navbar.cvHref}
                         target="_blank"
                         rel="noopener noreferrer"
                         className="cv-button"
                         onClick={closeMenu}
-                        aria-label="Ver hoja de vida de David Triminio en una nueva pestaña"
+                        aria-label={t.navbar.cvAriaLabel}
                     >
-                        Ver CV
+                        {t.navbar.cvLabel}
 
                         <Icon
                             icon="lineicons:eye"
