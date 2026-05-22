@@ -147,6 +147,24 @@ export default function NavBar({ themePreference, setThemePreference }) {
                     id="navbar-menu"
                     aria-hidden={isMobileViewport && !isMenuOpen ? "true" : undefined}
                 >
+                    <ul className="navbar-links">
+                        {navLinks.map((link) => (
+                            <li key={link.href}>
+                                <a
+                                    href={link.href}
+                                    className={`nav-link ${activeSection === link.href ? "is-active" : ""}`}
+                                    aria-current={activeSection === link.href ? "page" : undefined}
+                                    onClick={() => {
+                                        setActiveSection(link.href);
+                                        closeMenu();
+                                    }}
+                                >
+                                    {link.label}
+                                </a>
+                            </li>
+                        ))}
+                    </ul>
+
                     <div className="navbar-controls">
                         <div className="theme-control" role="group" aria-label={t.navbar.changeTheme}>
                             <button
@@ -214,25 +232,6 @@ export default function NavBar({ themePreference, setThemePreference }) {
                             </button>
                         </div>
                     </div>
-
-                    <ul className="navbar-links">
-                        {navLinks.map((link) => (
-                            <li key={link.href}>
-                                <a
-                                    href={link.href}
-                                    className={`nav-link ${activeSection === link.href ? "is-active" : ""}`}
-                                    aria-current={activeSection === link.href ? "page" : undefined}
-                                    onClick={() => {
-                                        setActiveSection(link.href);
-                                        closeMenu();
-                                    }}
-                                >
-                                    {link.label}
-                                </a>
-                            </li>
-                        ))}
-                    </ul>
-
                     <a
                         href={t.navbar.cvHref}
                         target="_blank"
