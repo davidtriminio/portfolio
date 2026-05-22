@@ -215,18 +215,10 @@
 
 @media (max-width: 1024px) {
     .navbar-container {
-        gap: 1rem;
-    }
-
-    .navbar-menu {
-        gap: 1rem;
-    }
-
-    .navbar-controls {
-        gap: 0.5rem;
-    }
-
-    .navbar-links {
+        min-height: 5rem;
+        display: grid;
+        grid-template-columns: auto 1fr auto;
+        align-items: center;
         gap: 0.75rem;
     }
 
@@ -234,32 +226,13 @@
         font-size: 1.05rem;
     }
 
-}
-
-@media (max-width: 768px) {
-    .navbar-container {
-        min-height: 4.75rem;
-        display: grid;
-        grid-template-columns: auto 1fr auto;
-        align-items: center;
-        gap: 0.75rem;
-    }
-
     .navbar-brand {
         justify-self: start;
     }
 
     .navbar-logo {
-        width: 56px;
-        height: 56px;
-    }
-
-    .name-title {
-        display: block;
-        font-size: 1rem;
-        text-align: center;
-        justify-self: center;
-        white-space: nowrap;
+        width: 64px;
+        height: 64px;
     }
 
     .navbar-toggle {
@@ -285,6 +258,7 @@
                 max-height 0.25s ease,
                 opacity 0.2s ease,
                 padding 0.2s ease;
+        border-top: 1px solid transparent;
     }
 
     .navbar-menu.is-open {
@@ -292,16 +266,12 @@
         opacity: 1;
         pointer-events: auto;
         padding: 1rem 0 0.5rem;
+        border-top-color: var(--color-border-soft);
     }
 
-    .theme-control {
-        width: fit-content;
-        align-self: center;
-    }
-
-    .language-switch {
-        width: fit-content;
-        align-self: center;
+    .navbar-controls {
+        justify-content: center;
+        flex-wrap: wrap;
     }
 
     .navbar-links {
@@ -326,6 +296,31 @@
     .cv-button {
         width: 100%;
         padding: 0.875rem;
+    }
+}
+
+@media (max-width: 768px) {
+    .navbar-container {
+        min-height: 4.75rem;
+    }
+
+    .navbar-logo {
+        width: 56px;
+        height: 56px;
+    }
+
+    .name-title {
+        display: block;
+        font-size: 1rem;
+        text-align: center;
+        justify-self: center;
+        white-space: nowrap;
+    }
+
+    .theme-control,
+    .language-switch {
+        width: fit-content;
+        align-self: center;
     }
 }
 
