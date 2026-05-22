@@ -70,7 +70,7 @@ export default function NavBar({ themePreference, setThemePreference }) {
 
     useEffect(() => {
         const handleResize = () => {
-            const mobileViewport = window.innerWidth <= 768;
+            const mobileViewport = window.innerWidth <= 1024;
 
             setIsMobileViewport(mobileViewport);
 
