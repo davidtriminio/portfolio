@@ -4,9 +4,9 @@ import { translations } from "../i18n/translations";
 const STORAGE_KEY = "portfolio-language-preference";
 const LanguageContext = createContext(null);
 
-const getInitialLanguage = () => {
+const getStoredLanguage = () => {
   if (typeof window === "undefined") {
-    return "es";
+    return null;
   }
 
   const savedLanguage = window.localStorage.getItem(STORAGE_KEY);
@@ -15,23 +15,38 @@ const getInitialLanguage = () => {
     return savedLanguage;
   }
 
+  return null;
+};
+
+const getDetectedLanguage = () => {
+  if (typeof window === "undefined") {
+    return "es";
+  }
+
   const browserLanguage = window.navigator.language?.toLowerCase() ?? "";
 
   return browserLanguage.startsWith("en") ? "en" : "es";
 };
 
 export function LanguageProvider({ children }) {
-  const [language, setLanguage] = useState(getInitialLanguage);
+  const [language, setLanguage] = useState(() => getStoredLanguage() ?? getDetectedLanguage());
 
   useEffect(() => {
     document.documentElement.lang = language;
-    window.localStorage.setItem(STORAGE_KEY, language);
   }, [language]);
+
+  const changeLanguage = (nextLanguage) => {
+    setLanguage(nextLanguage);
+
+    if (typeof window !== "undefined") {
+      window.localStorage.setItem(STORAGE_KEY, nextLanguage);
+    }
+  };
 
   const value = useMemo(() => {
     return {
       language,
-      setLanguage,
+      setLanguage: changeLanguage,
       t: translations[language],
     };
   }, [language]);
