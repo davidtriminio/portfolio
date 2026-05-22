@@ -2,6 +2,7 @@ import React from "react";
 import { Icon } from "@iconify/react";
 import { IMAGES } from "../../const/images";
 import "../about-me/about-me.css";
+import { useLanguage } from "../../context/language-context.jsx";
 
 const socialLinks = [
   {
@@ -17,6 +18,8 @@ const socialLinks = [
 ];
 
 export default function AboutMe() {
+  const { t } = useLanguage();
+
   return (
       <section
           className="about-me-section"
@@ -26,31 +29,27 @@ export default function AboutMe() {
         <div className="about-me-content">
           <div className="about-me-text">
             <p className="about-me-greeting">
-              Hola, soy{" "}
+              {t.about.greeting}{" "}
               <span className="about-me-name">
-              David Triminio
+              {t.about.fullName}
             </span>
               .
             </p>
 
             <h1 className="about-me-title" id="about-me-title">
             <span className="developer-text">
-              Desarrollador Full Stack
+              {t.about.titleLead}
             </span>{" "}
-              enfocado en soluciones web modernas
+              {t.about.titleTail}
             </h1>
 
             <p className="about-me-description">
-              Soy desarrollador Full Stack y me enfoco en crear aplicaciones
-              web funcionales, modernas y escalables. Busco aportar en equipos
-              de desarrollo, productos digitales y tambien colaborar en
-              proyectos freelance, cuidando tanto la experiencia del usuario
-              como la calidad tecnica de cada solucion.
+              {t.about.description}
             </p>
 
             <nav
                 className="social-buttons"
-                aria-label="Redes sociales de David Triminio"
+                aria-label={t.about.socialAriaLabel}
             >
               {socialLinks.map((social) => (
                   <a
@@ -58,7 +57,7 @@ export default function AboutMe() {
                       href={social.href}
                       target="_blank"
                       rel="noopener noreferrer"
-                      aria-label={`Visitar perfil de ${social.name}`}
+                      aria-label={`${t.about.visitProfile} ${social.name}`}
                       title={social.name}
                   >
                     <Icon
@@ -99,7 +98,7 @@ export default function AboutMe() {
                       aria-hidden="true"
                       focusable="false"
                   />
-                  <span>Disponible para empleo y freelance</span>
+                  <span>{t.about.availability}</span>
                 </div>
               </div>
             </div>

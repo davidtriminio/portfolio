@@ -1,8 +1,11 @@
 import React from "react";
 import "./skills.css";
 import { TechIcons } from "../icons/TechIcons.jsx";
+import { useLanguage } from "../../context/language-context.jsx";
 
 export default function Skills() {
+    const { t } = useLanguage();
+
     const frontend = [
         { name: "React", lib: "lineicons", icon: "react" },
         { name: "JavaScript", lib: "lineicons", icon: "javascript" },
@@ -67,44 +70,44 @@ export default function Skills() {
     const skills = [
         {
             id: "frontend",
-            title: "Frontend",
-            description: "Interfaces modernas, responsivas y enfocadas en experiencia de usuario.",
+            title: t.skills.sections.frontend.title,
+            description: t.skills.sections.frontend.description,
             techs: frontend,
         },
         {
             id: "backend",
-            title: "Backend",
-            description: "APIs, lógica de servidor y desarrollo de aplicaciones web.",
+            title: t.skills.sections.backend.title,
+            description: t.skills.sections.backend.description,
             techs: backend,
         },
         {
             id: "databases",
-            title: "Bases de datos",
-            description: "Modelado, consultas, relaciones y manejo de entornos SQL y NoSQL.",
+            title: t.skills.sections.databases.title,
+            description: t.skills.sections.databases.description,
             techs: databases,
         },
         {
             id: "deployment",
-            title: "Despliegue y hosting",
-            description: "Publicacion y mantenimiento de aplicaciones web en entornos de produccion.",
+            title: t.skills.sections.deployment.title,
+            description: t.skills.sections.deployment.description,
             techs: deployment,
         },
         {
             id: "tools",
-            title: "Herramientas",
-            description: "Flujo de desarrollo, control de versiones, pruebas de APIs y gestión de paquetes.",
+            title: t.skills.sections.tools.title,
+            description: t.skills.sections.tools.description,
             techs: tools,
         },
         {
             id: "design",
-            title: "Diseno de interfaces",
-            description: "Criterio visual para crear interfaces limpias, consistentes y funcionales.",
+            title: t.skills.sections.design.title,
+            description: t.skills.sections.design.description,
             techs: design,
         },
         {
             id: "exploring",
-            title: "Explorando",
-            description: "Tecnologias que estoy fortaleciendo para ampliar mi perfil como desarrollador Full Stack.",
+            title: t.skills.sections.exploring.title,
+            description: t.skills.sections.exploring.description,
             techs: exploring,
         },
     ]
@@ -117,17 +120,15 @@ export default function Skills() {
         >
             <div className="skills-header">
                 <p className="skills-subtitle">
-                    Perfil tecnico
+                    {t.skills.subtitle}
                 </p>
 
                 <h2 className="skills-title" id="skills-title">
-                    Habilidades
+                    {t.skills.title}
                 </h2>
 
                 <p className="skills-description">
-                    Tecnologias y herramientas con las que desarrollo soluciones
-                    web completas, aportando tanto en interfaz como en logica de
-                    negocio, bases de datos y despliegue en produccion.
+                    {t.skills.description}
                 </p>
             </div>
 

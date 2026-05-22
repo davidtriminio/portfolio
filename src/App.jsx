@@ -1,6 +1,7 @@
 import "./App.css";
 import AppRouter from "./routes/AppRouter.jsx";
 import { useEffect, useState } from "react";
+import { LanguageProvider } from "./context/language-context.jsx";
 
 const STORAGE_KEY = "portfolio-theme-preference";
 
@@ -28,10 +29,12 @@ function App() {
   }, [themePreference]);
 
   return (
-    <AppRouter
-      themePreference={themePreference}
-      setThemePreference={setThemePreference}
-    />
+    <LanguageProvider>
+      <AppRouter
+        themePreference={themePreference}
+        setThemePreference={setThemePreference}
+      />
+    </LanguageProvider>
   );
 }
 

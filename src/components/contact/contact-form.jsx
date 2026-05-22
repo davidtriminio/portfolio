@@ -1,5 +1,6 @@
 import { useState } from "react";
 import "./contact-form.css";
+import { useLanguage } from "../../context/language-context.jsx";
 
 const CONTACT_EMAIL = "davidtriminio21@gmail.com";
 const NAME_MIN_LENGTH = 3;
@@ -15,6 +16,7 @@ const FIELD_MAX_LENGTHS = {
 };
 
 export default function ContactForm() {
+  const { t } = useLanguage();
   const [submitMessage, setSubmitMessage] = useState("");
   const [formValues, setFormValues] = useState({
     name: "",
@@ -40,19 +42,19 @@ export default function ContactForm() {
     const email = String(formData.get("email") || "").trim();
     const message = String(formData.get("message") || "").trim();
 
-    const subject = encodeURIComponent(`Nuevo contacto desde el portafolio - ${name}`);
+    const subject = encodeURIComponent(`${t.contact.emailSubjectPrefix} ${name}`);
     const body = encodeURIComponent(
       [
-        `Nombre: ${name}`,
-        `Correo: ${email}`,
+        `${t.contact.emailBodyName}: ${name}`,
+        `${t.contact.emailBodyEmail}: ${email}`,
         "",
-        "Mensaje:",
+        `${t.contact.emailBodyMessage}:`,
         message,
       ].join("\n")
     );
 
     window.location.href = `mailto:${CONTACT_EMAIL}?subject=${subject}&body=${body}`;
-    setSubmitMessage("Se preparo tu mensaje en tu cliente de correo.");
+    setSubmitMessage(t.contact.submitSuccess);
     setFormValues({
       name: "",
       email: "",
@@ -81,13 +83,13 @@ export default function ContactForm() {
               aria-describedby="contact-form-help"
           >
             <p className="form-helper" id="contact-form-help">
-              Completa el formulario. Todos los campos son obligatorios.
+              {t.contact.formHelper}
             </p>
 
             <div className="form-group">
               <div className="field-head">
                 <label htmlFor="name">
-                  Nombre completo
+                  {t.contact.nameLabel}
                 </label>
 
                 <span
@@ -103,7 +105,7 @@ export default function ContactForm() {
                   name="name"
                   type="text"
                   className="field-text"
-                  placeholder="Tu nombre completo"
+                  placeholder={t.contact.namePlaceholder}
                   autoComplete="name"
                   maxLength={NAME_MAX_LENGTH}
                   minLength={NAME_MIN_LENGTH}
@@ -114,14 +116,14 @@ export default function ContactForm() {
               />
 
               <p className="field-helper" id="name-help">
-                Entre {NAME_MIN_LENGTH} y {NAME_MAX_LENGTH} caracteres.
+                {t.contact.nameHelper}
               </p>
             </div>
 
             <div className="form-group">
               <div className="field-head">
                 <label htmlFor="email">
-                  Correo electronico
+                  {t.contact.emailLabel}
                 </label>
 
                 <span
@@ -137,7 +139,7 @@ export default function ContactForm() {
                   name="email"
                   type="email"
                   className="field-text"
-                  placeholder="tu@email.com"
+                  placeholder={t.contact.emailPlaceholder}
                   autoComplete="email"
                   inputMode="email"
                   maxLength={EMAIL_MAX_LENGTH}
@@ -148,14 +150,14 @@ export default function ContactForm() {
               />
 
               <p className="field-helper" id="email-help">
-                Usa un correo valido de hasta {EMAIL_MAX_LENGTH} caracteres.
+                {t.contact.emailHelper}
               </p>
             </div>
 
             <div className="form-group">
               <div className="field-head">
                 <label htmlFor="message">
-                  Mensaje
+                  {t.contact.messageLabel}
                 </label>
 
                 <span
@@ -170,7 +172,7 @@ export default function ContactForm() {
                   id="message"
                   name="message"
                   className="field-text text-area-custom"
-                  placeholder="¿En qué puedo ayudarte?"
+                  placeholder={t.contact.messagePlaceholder}
                   rows={6}
                   minLength={MESSAGE_MIN_LENGTH}
                   maxLength={MESSAGE_MAX_LENGTH}
@@ -181,12 +183,12 @@ export default function ContactForm() {
               />
 
               <p className="field-helper" id="message-help">
-                Entre {MESSAGE_MIN_LENGTH} y {MESSAGE_MAX_LENGTH} caracteres.
+                {t.contact.messageHelper}
               </p>
             </div>
 
             <button type="submit" className="contact-button">
-              Enviar mensaje
+              {t.contact.submit}
             </button>
 
             {submitMessage ? (
@@ -198,25 +200,22 @@ export default function ContactForm() {
 
           <div className="contact-info">
             <p className="contact-subtitle">
-              Contacto
+              {t.contact.subtitle}
             </p>
 
             <h2 className="contact-title" id="contact-title">
-              Trabajemos juntos
-              <span> en tu equipo o proyecto.</span>
+              {t.contact.titleLead}
+              <span>{t.contact.titleTail}</span>
             </h2>
 
             <p className="contact-description">
-              Estoy abierto a oportunidades laborales como desarrollador y
-              tambien a colaboraciones freelance. Si buscas a alguien que pueda
-              aportar en frontend, backend o en el desarrollo completo de una
-              aplicacion web, sera un gusto conversar.
+              {t.contact.description}
             </p>
 
             <a
                 href={`mailto:${CONTACT_EMAIL}`}
                 className="contact-email-link"
-                aria-label={`Enviar correo a ${CONTACT_EMAIL}`}
+                aria-label={`${t.contact.emailAriaLabel} ${CONTACT_EMAIL}`}
             >
               {CONTACT_EMAIL}
             </a>
