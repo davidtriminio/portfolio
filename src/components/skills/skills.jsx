@@ -9,6 +9,7 @@ export default function Skills() {
     const frontend = [
         { name: "React", lib: "lineicons", icon: "react" },
         { name: "JavaScript", lib: "lineicons", icon: "javascript" },
+        { name: "TypeScript", lib: "lineicons", icon: "typescript" },
         { name: "HTML5", lib: "devicon-plain", icon: "html5" },
         { name: "CSS3", lib: "devicon-plain", icon: "css3" },
         { name: "Tailwind CSS", lib: "lineicons", icon: "tailwindcss" },
