@@ -130,6 +130,10 @@ export default function Projects() {
                     alt: getLocalizedValue(image.alt),
                   }))
                 : [{ src: project.image, alt: getLocalizedValue(project.imageAlt) }];
+              const coverImage = {
+                src: project.image ?? galleryImages[0]?.src,
+                alt: getLocalizedValue(project.imageAlt) || galleryImages[0]?.alt || "",
+              };
               const projectTitle = getLocalizedValue(project.title);
               const projectDescription = getLocalizedValue(project.description);
               const demoButtonLabel = getLocalizedValue(project.demoAccess?.label) || t.projects.demoButtonDefault;
@@ -153,8 +157,8 @@ export default function Projects() {
                       aria-label={`${t.projects.openGallery} ${projectTitle}`}
                     >
                       <img
-                        src={galleryImages[0].src}
-                        alt={galleryImages[0].alt}
+                        src={coverImage.src}
+                        alt={coverImage.alt}
                         className="project-image"
                         loading="lazy"
                       />

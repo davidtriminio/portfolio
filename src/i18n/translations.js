@@ -65,8 +65,18 @@ export const translations = {
           description: "Criterio visual para crear interfaces limpias, consistentes y funcionales.",
         },
         exploring: {
-          title: "Explorando",
-          description: "Tecnologias que estoy fortaleciendo para ampliar mi perfil como desarrollador Full Stack.",
+          title: "Bases y exposicion previa",
+          description:
+            "Tecnologías con las que he tenido base académica o participación en proyectos pequeños. No forman parte de mi stack principal hoy, pero cuento con fundamentos que me permiten retomarlas con contexto.",
+        },
+        ai: {
+          title: "Herramientas de IA",
+          description: "Utilizo herramientas de IA como apoyo en investigación técnica, prototipado, refactorización asistida y mejora de documentación, siempre con criterio técnico propio.",
+          tools: [
+            { name: "ChatGPT", icon: "simple-icons:openai" },
+            { name: "Claude", icon: "simple-icons:anthropic" },
+            { name: "GitHub Copilot", icon: "simple-icons:githubcopilot" },
+          ],
         },
       },
     },
@@ -186,8 +196,19 @@ export const translations = {
           description: "Visual judgment to create clean, consistent, and functional interfaces.",
         },
         exploring: {
-          title: "Currently exploring",
-          description: "Technologies I am strengthening to expand my profile as a Full Stack Developer.",
+          title: "Foundational exposure",
+          description:
+            "Technologies I have worked with through academic training or small projects. They are not part of my primary stack today, but I have enough foundation to pick them back up with context.",
+        },
+        ai: {
+          title: "AI tools",
+          description:
+            "I use AI tools to support technical research, prototyping, assisted refactoring, and clearer documentation, while keeping technical judgment as the main driver.",
+          tools: [
+            { name: "ChatGPT", icon: "simple-icons:openai" },
+            { name: "Claude", icon: "simple-icons:anthropic" },
+            { name: "GitHub Copilot", icon: "simple-icons:githubcopilot" },
+          ],
         },
       },
     },

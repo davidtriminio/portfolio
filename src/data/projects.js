@@ -11,7 +11,7 @@ export const projects = [
             es: "Aplicacion web desarrollada para crear, organizar y gestionar prompts de forma eficiente, ofreciendo una experiencia clara, intuitiva y orientada a optimizar el flujo de trabajo con herramientas de inteligencia artificial.",
             en: "Web application built to create, organize, and manage prompts efficiently, offering a clear, intuitive experience focused on improving workflows with artificial intelligence tools.",
         },
-        image: IMAGES.project_1_image_1,
+        image: IMAGES.promptForge,
         imageAlt: {
             es: "Vista previa principal del proyecto PromptForge",
             en: "Main preview of the PromptForge project",
@@ -99,28 +99,64 @@ export const projects = [
             { name: "Vite", lib: "lineicons", icon: "vite" },
         ],
     },
-    // {
-    //     id: "landing-page",
-    //     title: "Pagina de aterrizaje",
-    //     description: "Landing page disenada para comunicar una propuesta de valor de manera directa, con enfoque en rendimiento, adaptacion movil y una estructura visual orientada a conversion.",
-    //     image: IMAGES.project2,
-    //     imageAlt: "Vista previa principal de pagina de aterrizaje",
-    //     gallery: [
-    //         {
-    //             src: IMAGES.project2,
-    //             alt: "Vista principal de la pagina de aterrizaje",
-    //         },
-    //         {
-    //             src: IMAGES.project3,
-    //             alt: "Vista alternativa de la pagina de aterrizaje en otra seccion",
-    //         },
-    //     ],
-    //     previewUrl: "https://landing-demo.vercel.app",
-    //     githubUrl: "",
-    //     technologies: [
-    //         { name: "HTML5", lib: "devicon-plain", icon: "html5" },
-    //         { name: "CSS3", lib: "devicon-plain", icon: "css3" },
-    //         { name: "JavaScript", lib: "lineicons", icon: "javascript" },
-    //     ],
-    // },
+    {
+        id: "postresizer",
+        title: {
+            es: "PostResizer",
+            en: "PostResizer",
+        },
+        description: {
+            es: "Herramienta web para consultar dimensiones y formatos de contenido por red social, con filtros por plataforma, tipo de formato y medio, vista previa de proporciones, multiplicadores de exportacion y acceso rapido a favoritos y formatos recientes.",
+            en: "Web tool for checking social media post dimensions and format specs by network, with filters by platform, format type, and media, plus ratio previews, export multipliers, and quick access to favorites and recent formats.",
+        },
+        image: IMAGES.postresizer_dark_1,
+        imageAlt: {
+            es: "Vista previa principal del proyecto PostResizer",
+            en: "Main preview of the PostResizer project",
+        },
+        gallery: [
+            {
+                src: IMAGES.postresizer_dark_1,
+                alt: {
+                    es: "Vista general del catalogo de formatos de PostResizer en tema oscuro",
+                    en: "Overview of the PostResizer format catalog in dark theme",
+                },
+            },
+            {
+                src: IMAGES.postresizer_dark_2,
+                alt: {
+                    es: "Vista de formatos por plataforma con dimensiones base y escaladas en PostResizer en tema oscuro",
+                    en: "Platform format cards with base and scaled dimensions in PostResizer dark theme",
+                },
+            },
+            {
+                src: IMAGES.postresizer_dark_3,
+                alt: {
+                    es: "Vista previa de formatos verticales y notas de publicacion en PostResizer en tema oscuro",
+                    en: "Vertical format previews and publishing notes in PostResizer dark theme",
+                },
+            },
+            {
+                src: IMAGES.postresizer_light_1,
+                alt: {
+                    es: "Vista general del catalogo de formatos de PostResizer en tema claro",
+                    en: "Overview of the PostResizer format catalog in light theme",
+                },
+            },
+            {
+                src: IMAGES.postresizer_light_2,
+                alt: {
+                    es: "Vista de formatos por red social y vista previa de proporciones en PostResizer en tema claro",
+                    en: "Network-based format view and ratio previews in PostResizer light theme",
+                },
+            },
+        ],
+        previewUrl: "https://postresizer.lat/",
+        technologies: [
+            { name: "React", lib: "lineicons", icon: "react" },
+            { name: "Node.js", lib: "lineicons", icon: "nodejs" },
+            { name: "Tailwind CSS", lib: "lineicons", icon: "tailwindcss" },
+            { name: "Vite", lib: "lineicons", icon: "vite" },
+        ],
+    },
 ];
