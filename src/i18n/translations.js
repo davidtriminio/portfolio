@@ -67,7 +67,7 @@ export const translations = {
         exploring: {
           title: "Bases y exposicion previa",
           description:
-            "Tecnologias con las que he tenido base academica o participacion en proyectos pequenos. No forman parte de mi stack principal hoy, pero cuento con fundamentos que me permiten retomarlas con contexto.",
+            "Tecnologías con las que he tenido base académica o participación en proyectos pequeños. No forman parte de mi stack principal hoy, pero cuento con fundamentos que me permiten retomarlas con contexto.",
         },
       },
     },
