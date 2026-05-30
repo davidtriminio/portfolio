@@ -2,6 +2,7 @@ import React from "react";
 import "./skills.css";
 import { TechIcons } from "../icons/TechIcons.jsx";
 import { useLanguage } from "../../context/language-context.jsx";
+import { Icon } from "@iconify/react";
 
 export default function Skills() {
     const { t } = useLanguage();
@@ -68,6 +69,8 @@ export default function Skills() {
         { name: ".NET", lib: "devicon-plain", icon: "dotnetcore" },
     ]
 
+    const aiTools = t.skills.sections.ai.tools;
+
     const skills = [
         {
             id: "frontend",
@@ -111,6 +114,12 @@ export default function Skills() {
             description: t.skills.sections.exploring.description,
             techs: exploring,
         },
+        {
+            id: "ai",
+            title: t.skills.sections.ai.title,
+            description: t.skills.sections.ai.description,
+            aiTools,
+        },
     ]
 
     return (
@@ -136,7 +145,7 @@ export default function Skills() {
             <div className="skills-grid">
                 {skills.map((skill) => (
                     <article
-                        className="container-lang"
+                        className={`container-lang ${skill.id === "ai" ? "is-compact-card" : ""}`}
                         key={skill.id}
                         aria-labelledby={`${skill.id}-title`}
                     >
@@ -150,7 +159,25 @@ export default function Skills() {
                             </p>
                         </header>
 
-                        <TechIcons techs={skill.techs} />
+                        {skill.id === "ai" ? (
+                                <div className="ai-chip-list" aria-label={skill.title}>
+                                    {skill.aiTools.map((tool) => (
+                                        <span key={tool.name} className="ai-chip">
+                                            <Icon
+                                                icon={tool.icon}
+                                                width={16}
+                                                height={16}
+                                                aria-hidden="true"
+                                                focusable="false"
+                                                className="ai-chip-icon"
+                                            />
+                                            <span>{tool.name}</span>
+                                        </span>
+                                    ))}
+                                </div>
+                        ) : (
+                            <TechIcons techs={skill.techs} />
+                        )}
                     </article>
                 ))}
             </div>

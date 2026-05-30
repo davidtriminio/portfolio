@@ -69,6 +69,15 @@ export const translations = {
           description:
             "Tecnologías con las que he tenido base académica o participación en proyectos pequeños. No forman parte de mi stack principal hoy, pero cuento con fundamentos que me permiten retomarlas con contexto.",
         },
+        ai: {
+          title: "Herramientas de IA",
+          description: "Utilizo herramientas de IA como apoyo en investigación técnica, prototipado, refactorización asistida y mejora de documentación, siempre con criterio técnico propio.",
+          tools: [
+            { name: "ChatGPT", icon: "simple-icons:openai" },
+            { name: "Claude", icon: "simple-icons:anthropic" },
+            { name: "GitHub Copilot", icon: "simple-icons:githubcopilot" },
+          ],
+        },
       },
     },
     projects: {
@@ -190,6 +199,16 @@ export const translations = {
           title: "Foundational exposure",
           description:
             "Technologies I have worked with through academic training or small projects. They are not part of my primary stack today, but I have enough foundation to pick them back up with context.",
+        },
+        ai: {
+          title: "AI tools",
+          description:
+            "I use AI tools to support technical research, prototyping, assisted refactoring, and clearer documentation, while keeping technical judgment as the main driver.",
+          tools: [
+            { name: "ChatGPT", icon: "simple-icons:openai" },
+            { name: "Claude", icon: "simple-icons:anthropic" },
+            { name: "GitHub Copilot", icon: "simple-icons:githubcopilot" },
+          ],
         },
       },
     },

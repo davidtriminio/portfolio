@@ -47,6 +47,45 @@
     gap: 1.25rem;
 }
 
+.ai-chip-list {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 0.75rem;
+    justify-content: center;
+    max-width: 18rem;
+    margin: 0.5rem auto 0;
+}
+
+.ai-chip {
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    gap: 0.5rem;
+    min-height: 2.5rem;
+    padding: 0.55rem 0.95rem;
+    border: 1px solid var(--color-border-soft);
+    border-radius: 999px;
+    background-color: var(--color-surface-pill);
+    color: var(--color-text);
+    font-size: 0.85rem;
+    font-weight: 600;
+    transition:
+            background-color 0.3s ease,
+            border-color 0.3s ease,
+            transform 0.3s ease;
+}
+
+.ai-chip:hover {
+    background-color: var(--color-surface-pill-hover);
+    border-color: var(--color-border-strong);
+    transform: translateY(-2px);
+}
+
+.ai-chip-icon {
+    color: currentColor;
+    flex-shrink: 0;
+}
+
 .container-lang {
     width: 100%;
     min-height: 250px;
@@ -55,7 +94,7 @@
     padding: 1.5rem;
     display: flex;
     flex-direction: column;
-    justify-content: space-between;
+    justify-content: flex-start;
     gap: 1.5rem;
     background-color: transparent;
     transition:
@@ -94,7 +133,7 @@
 .tech-icons {
     list-style: none;
     padding: 0;
-    margin: 1.5rem 0 0;
+    margin: 0;
     display: flex;
     flex-wrap: wrap;
     justify-content: center;
@@ -193,6 +232,7 @@
     .skills-grid {
         grid-template-columns: repeat(2, minmax(0, 1fr));
     }
+
 }
 
 @media (min-width: 1024px) {
