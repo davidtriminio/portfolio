@@ -65,8 +65,9 @@ export const translations = {
           description: "Criterio visual para crear interfaces limpias, consistentes y funcionales.",
         },
         exploring: {
-          title: "Explorando",
-          description: "Tecnologias que estoy fortaleciendo para ampliar mi perfil como desarrollador Full Stack.",
+          title: "Bases y exposicion previa",
+          description:
+            "Tecnologias con las que he tenido base academica o participacion en proyectos pequenos. No forman parte de mi stack principal hoy, pero cuento con fundamentos que me permiten retomarlas con contexto.",
         },
       },
     },
@@ -186,8 +187,9 @@ export const translations = {
           description: "Visual judgment to create clean, consistent, and functional interfaces.",
         },
         exploring: {
-          title: "Currently exploring",
-          description: "Technologies I am strengthening to expand my profile as a Full Stack Developer.",
+          title: "Foundational exposure",
+          description:
+            "Technologies I have worked with through academic training or small projects. They are not part of my primary stack today, but I have enough foundation to pick them back up with context.",
         },
       },
     },
