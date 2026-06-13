@@ -152,7 +152,7 @@ export const translations = {
       },
       cvLabel: "View resume",
       cvAriaLabel: "Open David Triminio resume in a new tab",
-      cvHref: "/David-Triminio-CV_EN.pdf",
+      cvHref: "/David-Triminio_CV_EN.pdf",
     },
     about: {
       greeting: "Hi, I'm",
