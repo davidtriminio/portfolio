@@ -1,6 +1,111 @@
-﻿import { IMAGES } from "../const/images";
+﻿import {IMAGES} from "../const/images";
 
 export const projects = [
+    {
+        id: "online-learning-platform",
+        title: {
+            es: "Online Learning Platform",
+            en: "Online Learning Platform",
+        },
+        description: {
+            es: "Plataforma de aprendizaje online construida con Angular 22+, orientada a demostrar una arquitectura moderna, escalable y completamente reactiva. Consume una API REST para implementar autenticación, gestión de cursos, videos, inscripciones, progreso de aprendizaje y favoritos, resolviendo la integración entre múltiples recursos mediante stores, repositorios, DTOs y mappers. El proyecto prioriza rendimiento y mantenibilidad mediante Signals, SignalStore, arquitectura orientada al dominio, lazy loading, SSR, zoneless, @defer, hidratación, testing con Vitest y despliegue SSR en Vercel.",
+            en: "Online learning platform built with Angular 22+, focused on demonstrating a modern, scalable, and fully reactive architecture. It consumes a REST API to implement authentication, course management, videos, enrollments, learning progress, and favorites, solving the integration between multiple resources through stores, repositories, DTOs, and mappers. The project prioritizes performance and maintainability using Signals, SignalStore, domain-oriented architecture, lazy loading, SSR, zoneless, @defer, hydration, Vitest testing, and SSR deployment on Vercel.",
+        },
+        image: IMAGES.olp_4,
+        imageAlt: {
+            es: "Vista principal de la plataforma de aprendizaje online",
+            en: "Main view of the online learning platform",
+        },
+        gallery: [
+            {
+                src: IMAGES.olp,
+                alt: {
+                    es: "Vista de la plataforma de aprendizaje online",
+                    en: "Online learning platform overview",
+                },
+            },
+            {
+                src: IMAGES.olp_2,
+                alt: {
+                    es: "Catálogo de cursos de la plataforma de aprendizaje",
+                    en: "Course catalog of the learning platform",
+                },
+            },
+            {
+                src: IMAGES.olp_3,
+                alt: {
+                    es: "Detalle de curso con contenido y reproducción de videos",
+                    en: "Course detail with content and video playback",
+                },
+            },
+            {
+                src: IMAGES.olp_4,
+                alt: {
+                    es: "Interfaz principal de la plataforma en tema oscuro",
+                    en: "Main platform interface in dark theme",
+                },
+            },
+            {
+                src: IMAGES.olp_5,
+                alt: {
+                    es: "Gestión de cursos y progreso de aprendizaje",
+                    en: "Course management and learning progress",
+                },
+            },
+            {
+                src: IMAGES.olp_6,
+                alt: {
+                    es: "Vista de la plataforma de aprendizaje online",
+                    en: "Online learning platform view",
+                },
+            },
+            {
+                src: IMAGES.olp_dark,
+                alt: {
+                    es: "Plataforma de aprendizaje online en tema oscuro",
+                    en: "Online learning platform in dark theme",
+                },
+            },
+            {
+                src: IMAGES.olp_dark_2,
+                alt: {
+                    es: "Catálogo de cursos en tema oscuro",
+                    en: "Course catalog in dark theme",
+                },
+            },
+            {
+                src: IMAGES.olp_dark_3,
+                alt: {
+                    es: "Detalle y reproducción de contenido en tema oscuro",
+                    en: "Course detail and content playback in dark theme",
+                },
+            },
+            {
+                src: IMAGES.olp_dark_4,
+                alt: {
+                    es: "Vista de la plataforma de aprendizaje en tema oscuro",
+                    en: "Learning platform view in dark theme",
+                },
+            },
+        ],
+        previewUrl: "https://learning-platform.davidtriminio.dev",
+        technologies: [
+            {name: "Angular", lib: "lineicons", icon: "angular"},
+            {name: "Tailwind CSS", lib: "lineicons", icon: "tailwindcss"},
+            {name: "Vite", lib: "lineicons", icon: "vite"},
+            {name: "Vercel", lib: "lineicons", icon: "vercel"},
+            { name: "NgRx Signals", lib: "devicon-plain", icon: "ngrx" },
+            { name: "Vitest", lib: "devicon-plain", icon: "vitest" },
+            { name: "SSR", lib: "lineicons", icon: "angular" },
+        ],
+        demoAccess: {
+            label: {
+                es: "Probar demo",
+                en: "Try demo",
+            },
+            url: "https://learning-platform.davidtriminio.dev/demo",
+        },
+    },
     {
         id: "promptforge",
         title: {
@@ -91,12 +196,12 @@ export const projects = [
             },
         },
         technologies: [
-            { name: "MongoDB", lib: "devicon-plain", icon: "mongodb" },
-            { name: "Express.js", lib: "lineicons", icon: "expressjs" },
-            { name: "React", lib: "lineicons", icon: "react" },
-            { name: "Node.js", lib: "lineicons", icon: "nodejs" },
-            { name: "Tailwind CSS", lib: "lineicons", icon: "tailwindcss" },
-            { name: "Vite", lib: "lineicons", icon: "vite" },
+            {name: "MongoDB", lib: "devicon-plain", icon: "mongodb"},
+            {name: "Express.js", lib: "lineicons", icon: "expressjs"},
+            {name: "React", lib: "lineicons", icon: "react"},
+            {name: "Node.js", lib: "lineicons", icon: "nodejs"},
+            {name: "Tailwind CSS", lib: "lineicons", icon: "tailwindcss"},
+            {name: "Vite", lib: "lineicons", icon: "vite"},
         ],
     },
     {
@@ -153,10 +258,10 @@ export const projects = [
         ],
         previewUrl: "https://postresizer.lat/",
         technologies: [
-            { name: "React", lib: "lineicons", icon: "react" },
-            { name: "Node.js", lib: "lineicons", icon: "nodejs" },
-            { name: "Tailwind CSS", lib: "lineicons", icon: "tailwindcss" },
-            { name: "Vite", lib: "lineicons", icon: "vite" },
+            {name: "React", lib: "lineicons", icon: "react"},
+            {name: "Node.js", lib: "lineicons", icon: "nodejs"},
+            {name: "Tailwind CSS", lib: "lineicons", icon: "tailwindcss"},
+            {name: "Vite", lib: "lineicons", icon: "vite"},
         ],
     },
 ];
