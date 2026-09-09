@@ -74,7 +74,7 @@ export const translations = {
           description: "Utilizo herramientas de IA como apoyo en investigación técnica, prototipado, refactorización asistida y mejora de documentación, siempre con criterio técnico propio.",
           tools: [
             { name: "ChatGPT", icon: "simple-icons:openai" },
-            { name: "Claude", icon: "simple-icons:anthropic" },
+            { name: "Claude", icon: "simple-icons:claude" },
             { name: "GitHub Copilot", icon: "simple-icons:githubcopilot" },
           ],
         },
@@ -206,7 +206,7 @@ export const translations = {
             "I use AI tools to support technical research, prototyping, assisted refactoring, and clearer documentation, while keeping technical judgment as the main driver.",
           tools: [
             { name: "ChatGPT", icon: "simple-icons:openai" },
-            { name: "Claude", icon: "simple-icons:anthropic" },
+            { name: "Claude", icon: "simple-icons:claude" },
             { name: "GitHub Copilot", icon: "simple-icons:githubcopilot" },
           ],
         },
