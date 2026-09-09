@@ -19,6 +19,26 @@ import postresizer_light_1 from '../assets/images/postresizer_light_1.webp'
 import postresizer_light_2 from '../assets/images/postresizer_light_2.webp'
 import project2 from '../assets/images/project2.png'
 import project3 from '../assets/images/project3.png'
+import olp from '../assets/images/olp/olp.webp'
+import olp_2 from '../assets/images/olp/olp_2.webp'
+import olp_3 from '../assets/images/olp/olp_3.webp'
+import olp_4 from '../assets/images/olp/olp_4.webp'
+import olp_5 from '../assets/images/olp/olp_5.webp'
+import olp_6 from '../assets/images/olp/olp_6.webp'
+import olp_dark from '../assets/images/olp/olp_dark.webp'
+import olp_dark_2 from '../assets/images/olp/olp_dark_2.webp'
+import olp_dark_3 from '../assets/images/olp/olp_dark_3.webp'
+import olp_dark_4 from '../assets/images/olp/olp_dark_4.webp'
+import vitrine from '../assets/images/vitrine/vitrine_0.webp'
+import vitrine_1 from '../assets/images/vitrine/vitrine_1.webp'
+import vitrine_2 from '../assets/images/vitrine/vitrine_2.webp'
+import vitrine_3 from '../assets/images/vitrine/vitrine_3.webp'
+import vitrine_4 from '../assets/images/vitrine/vitrine_4.webp'
+import vitrine_5 from '../assets/images/vitrine/vitrine_5.webp'
+import vitrine_6 from '../assets/images/vitrine/vitrine_6.webp'
+import vitrine_7 from '../assets/images/vitrine/vitrine_7.webp'
+import vitrine_8 from '../assets/images/vitrine/vitrine_8.webp'
+import vitrine_10 from '../assets/images/vitrine/vitrine_10.webp'
 
 export const IMAGES = {
     logo,
@@ -42,4 +62,24 @@ export const IMAGES = {
     postresizer_dark_3,
     project2,
     project3,
+    olp,
+    olp_2,
+    olp_3,
+    olp_4,
+    olp_5,
+    olp_6,
+    olp_dark,
+    olp_dark_2,
+    olp_dark_3,
+    olp_dark_4,
+    vitrine,
+    vitrine_1,
+    vitrine_2,
+    vitrine_3,
+    vitrine_4,
+    vitrine_5,
+    vitrine_6,
+    vitrine_7,
+    vitrine_8,
+    vitrine_10,
 }

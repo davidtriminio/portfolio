@@ -103,6 +103,21 @@ export default function Projects() {
     });
   };
 
+  const moveGallery = (direction) => {
+    setActiveGallery((currentGallery) => {
+      if (!currentGallery) {
+        return currentGallery;
+      }
+
+      const imageCount = currentGallery.images.length;
+      return {
+        ...currentGallery,
+        currentIndex:
+          (currentGallery.currentIndex + direction + imageCount) % imageCount,
+      };
+    });
+  };
+
   return (
     <>
       <section
@@ -402,6 +417,44 @@ export default function Projects() {
                 alt={activeGallery.images[activeGallery.currentIndex].alt}
                 className="project-modal-image"
               />
+
+              {activeGallery.images.length > 1 ? (
+                <>
+                  <button
+                    type="button"
+                    className="project-modal-navigation project-modal-navigation-previous"
+                    onClick={() => {
+                      moveGallery(-1);
+                    }}
+                    aria-label={t.projects.previousImage}
+                  >
+                    <Icon
+                      icon="lineicons:arrow-left"
+                      width={24}
+                      height={24}
+                      aria-hidden="true"
+                      focusable="false"
+                    />
+                  </button>
+
+                  <button
+                    type="button"
+                    className="project-modal-navigation project-modal-navigation-next"
+                    onClick={() => {
+                      moveGallery(1);
+                    }}
+                    aria-label={t.projects.nextImage}
+                  >
+                    <Icon
+                      icon="lineicons:arrow-right"
+                      width={24}
+                      height={24}
+                      aria-hidden="true"
+                      focusable="false"
+                    />
+                  </button>
+                </>
+              ) : null}
             </div>
 
             {activeGallery.images.length > 1 ? (

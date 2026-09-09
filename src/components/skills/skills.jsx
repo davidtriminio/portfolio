@@ -8,7 +8,7 @@ export default function Skills() {
     const { t } = useLanguage();
 
     const frontend = [
-        { name: "React", lib: "lineicons", icon: "react" },
+        { name: "Angular", lib: "lineicons", icon: "angular" },
         { name: "JavaScript", lib: "lineicons", icon: "javascript" },
         { name: "TypeScript", lib: "lineicons", icon: "typescript" },
         { name: "HTML5", lib: "devicon-plain", icon: "html5" },
@@ -22,6 +22,7 @@ export default function Skills() {
         { name: "Node.js", lib: "lineicons", icon: "nodejs" },
         { name: "Express.js", lib: "lineicons", icon: "expressjs" },
         { name: "Laravel", lib: "lineicons", icon: "laravel" },
+        { name: ".NET", lib: "simple-icons", icon: "dotnet" },
     ]
 
     const databases = [
@@ -66,7 +67,6 @@ export default function Skills() {
         { name: "Linux", lib: "devicon-plain", icon: "linux" },
         { name: "Java", lib: "devicon-plain", icon: "java" },
         { name: "Kotlin", lib: "devicon-plain", icon: "kotlin" },
-        { name: ".NET", lib: "devicon-plain", icon: "dotnetcore" },
     ]
 
     const aiTools = t.skills.sections.ai.tools;
