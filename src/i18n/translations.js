@@ -21,7 +21,7 @@ export const translations = {
       },
       cvLabel: "Ver CV",
       cvAriaLabel: "Ver hoja de vida de David Triminio en una nueva pestana",
-      cvHref: "/David-Triminio-CV.pdf",
+      cvHref: "/David_Triminio_CV.pdf",
     },
     about: {
       greeting: "Hola, soy",
