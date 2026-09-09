@@ -94,9 +94,9 @@ export const projects = [
             {name: "Tailwind CSS", lib: "lineicons", icon: "tailwindcss"},
             {name: "Vite", lib: "lineicons", icon: "vite"},
             {name: "Vercel", lib: "lineicons", icon: "vercel"},
-            { name: "NgRx Signals", lib: "devicon-plain", icon: "ngrx" },
-            { name: "Vitest", lib: "devicon-plain", icon: "vitest" },
-            { name: "SSR", lib: "lineicons", icon: "angular" },
+            {name: "NgRx Signals", lib: "devicon-plain", icon: "ngrx"},
+            {name: "Vitest", lib: "devicon-plain", icon: "vitest"},
+            {name: "SSR", lib: "lineicons", icon: "angular"},
         ],
         demoAccess: {
             label: {
@@ -105,6 +105,105 @@ export const projects = [
             },
             url: "https://learning-platform.davidtriminio.dev/demo",
         },
+    },
+    {
+        id: "vitrine",
+        title: {
+            es: "Vitrine",
+            en: "Vitrine",
+        },
+        description: {
+            es: "MVP de e-commerce y catálogo digital para una floristería local, actualmente en producción. La plataforma permite presentar el catálogo de productos, organizar flores y arreglos por categorías, destacar ofertas y gestionar el contenido desde un panel administrativo sencillo. El frontend está construido con Angular 22+ y consume una API REST desarrollada con .NET 10, manteniendo una separación clara entre presentación, estado y comunicación con el backend. El proyecto está diseñado como una base evolutiva: parte de una solución simple y enfocada en las necesidades actuales del negocio, pero preparada para incorporar progresivamente nuevas funcionalidades comerciales y operativas.",
+            en: "Production-ready MVP for a local flower shop, combining a digital product catalog with a foundation for future e-commerce capabilities. The platform allows customers to browse flowers and arrangements, explore products by category, discover featured offers, and provides a simple admin panel for managing the catalog and promotional content. The frontend is built with Angular 22+ and consumes a REST API powered by .NET 10, maintaining a clear separation between presentation, state management, and backend communication. The project is intentionally focused on the business's current needs while providing an extensible foundation for progressively adding new commercial and operational features.",
+        },
+        image: IMAGES.vitrine_1,
+        imageAlt: {
+            es: "Vista principal de Vitrine, catálogo digital para floristería",
+            en: "Main view of Vitrine, a digital catalog for a flower shop",
+        },
+        gallery: [
+            {
+                src: IMAGES.vitrine,
+                alt: {
+                    es: "Vista principal del catálogo de productos de Vitrine",
+                    en: "Main product catalog view of Vitrine",
+                },
+            },
+            {
+                src: IMAGES.vitrine_1,
+                alt: {
+                    es: "Vista principal del catálogo de productos de Vitrine",
+                    en: "Main product catalog view of Vitrine",
+                },
+            },
+            {
+                src: IMAGES.vitrine_2,
+                alt: {
+                    es: "Catálogo de flores y arreglos de la floristería",
+                    en: "Flower and arrangement catalog",
+                },
+            },
+            {
+                src: IMAGES.vitrine_3,
+                alt: {
+                    es: "Productos organizados por categorías",
+                    en: "Products organized by categories",
+                },
+            },
+            {
+                src: IMAGES.vitrine_4,
+                alt: {
+                    es: "Sección de ofertas y productos destacados",
+                    en: "Offers and featured products section",
+                },
+            },
+            {
+                src: IMAGES.vitrine_5,
+                alt: {
+                    es: "Panel administrativo para gestionar el catálogo",
+                    en: "Admin panel for catalog management",
+                },
+            },
+            {
+                src: IMAGES.vitrine_6,
+                alt: {
+                    es: "Panel administrativo para gestionar el catálogo",
+                    en: "Admin panel for catalog management",
+                },
+            },
+            {
+                src: IMAGES.vitrine_7,
+                alt: {
+                    es: "Panel administrativo para gestionar el catálogo",
+                    en: "Admin panel for catalog management",
+                },
+            },
+            {
+                src: IMAGES.vitrine_8,
+                alt: {
+                    es: "Panel administrativo para gestionar el catálogo",
+                    en: "Admin panel for catalog management",
+                },
+            },
+            {
+                src: IMAGES.vitrine_10,
+                alt: {
+                    es: "Panel administrativo para gestionar el catálogo",
+                    en: "Admin panel for catalog management",
+                },
+            },
+        ],
+        previewUrl: "https://vitrine-rho-navy.vercel.app/",
+        technologies: [
+            {name: "Angular", lib: "lineicons", icon: "angular"},
+            {name: "Tailwind CSS", lib: "lineicons", icon: "tailwindcss"},
+            {name: "Vite", lib: "lineicons", icon: "vite"},
+            {name: ".NET 10", lib: "lineicons", icon: "code"},
+            {name: "NgRx Signals", lib: "devicon-plain", icon: "ngrx"},
+            {name: "Vitest", lib: "devicon-plain", icon: "vitest"},
+            {name: "SSR", lib: "lineicons", icon: "angular"},
+            {name: "Vercel", lib: "lineicons", icon: "vercel"},
+        ],
     },
     {
         id: "promptforge",
