@@ -29,6 +29,16 @@ import olp_dark from '../assets/images/olp/olp_dark.webp'
 import olp_dark_2 from '../assets/images/olp/olp_dark_2.webp'
 import olp_dark_3 from '../assets/images/olp/olp_dark_3.webp'
 import olp_dark_4 from '../assets/images/olp/olp_dark_4.webp'
+import vitrine from '../assets/images/vitrine/vitrine_0.webp'
+import vitrine_1 from '../assets/images/vitrine/vitrine_1.webp'
+import vitrine_2 from '../assets/images/vitrine/vitrine_2.webp'
+import vitrine_3 from '../assets/images/vitrine/vitrine_3.webp'
+import vitrine_4 from '../assets/images/vitrine/vitrine_4.webp'
+import vitrine_5 from '../assets/images/vitrine/vitrine_5.webp'
+import vitrine_6 from '../assets/images/vitrine/vitrine_6.webp'
+import vitrine_7 from '../assets/images/vitrine/vitrine_7.webp'
+import vitrine_8 from '../assets/images/vitrine/vitrine_8.webp'
+import vitrine_10 from '../assets/images/vitrine/vitrine_10.webp'
 
 export const IMAGES = {
     logo,
@@ -62,4 +72,14 @@ export const IMAGES = {
     olp_dark_2,
     olp_dark_3,
     olp_dark_4,
+    vitrine,
+    vitrine_1,
+    vitrine_2,
+    vitrine_3,
+    vitrine_4,
+    vitrine_5,
+    vitrine_6,
+    vitrine_7,
+    vitrine_8,
+    vitrine_10,
 }
